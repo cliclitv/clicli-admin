@@ -1,0 +1,32 @@
+.user-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.user-info .avatar {
+    text-align: center;
+    padding-bottom: 30px;
+
+}
+
+.avatar img {
+    border-radius: 50%;
+}
+
+.name {
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.quick-start {
+    padding: 100px;
+    color: #999;
+}
+
+.quick-start span {
+    color: #467B96;
+    padding: 10px;
+}

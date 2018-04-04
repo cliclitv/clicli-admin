@@ -1,0 +1,27 @@
+.toptip {
+    position: fixed;
+    width: 100%;
+    padding: 10px;
+    color: #fff;
+    top: -40px;
+    text-align: center;
+    animation: moveup 5s 1;
+}
+
+@keyframes moveup {
+    0% {
+        top: -40px;
+        opacity: 1;
+    }
+    25%{
+        top: 0;
+        opacity: 1;
+    }
+    50%{
+        opacity: 1;
+    }
+    100% {
+        top: 0;
+        opacity: 0;
+    }
+}

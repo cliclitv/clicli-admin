@@ -1,0 +1,45 @@
+.write-article {
+    width: 800px;
+    margin: 100px auto;
+}
+
+.write-article h1 {
+    color: #467B96;
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+.write-article input {
+    padding: 10px;
+    width: 100%;
+    box-shadow: 1px 1px 1px rgba(70, 123, 150, 0.2);
+    border: 0;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+
+.write-article button {
+    background: #467B96;
+    padding: 8px 30px;
+    color: #fff;
+    margin: 20px 0;
+    border: 0;
+    box-shadow: 1px 1px 1px rgba(32, 79, 105, 0.6);
+    cursor: pointer;
+    float: right;
+}
+
+.write-article select {
+    padding: 5px 17px;
+    box-shadow: 1px 1px 1px rgba(70, 123, 150, 0.2);
+    border: 0;
+    color: #666;
+    margin: 20px 20px 0 0;
+    position: relative;
+    top: 3px;
+}
+
+.write-article span {
+    color: #666;
+    font-size: 13px;
+}
