@@ -20,10 +20,16 @@ class Home extends React.Component {
 
   onRegister() {
     if (!this.props.state.name || !this.props.state.pwd || !this.props.state.repeatPwd || !this.props.state.qq) {
-      return this.setState({
+      this.setState({
         msg: '都要填写都要填(〃＞皿＜)！',
         bg: '#ef736e'
       })
+      setTimeout(() => {
+        this.setState({
+          msg: ''
+        })
+      }, 4500)
+      return
     }
     register(this.props.state).then(res => {
       if (res.status === 200 && res.data.code === 0) {
@@ -39,11 +45,6 @@ class Home extends React.Component {
           msg: res.data.msg,
           bg: '#ef736e'
         })
-        setTimeout(() => {
-          this.setState({
-            msg: ''
-          })
-        }, 5000)
       }
     })
 
@@ -77,7 +78,7 @@ class Home extends React.Component {
             <li>
               <button onClick={this.onRegister}>注册</button>
             </li>
-            <li><a href="">返回首页</a></li>
+            <li><a href="/">返回首页</a></li>
           </ul>
         </div>
       </div>

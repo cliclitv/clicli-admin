@@ -11,12 +11,14 @@ module.exports = {
   },
   resolve: {
     alias: {
+      'react': 'anujs',
+      'react-dom': 'anujs',
       component: path.resolve(__dirname, 'src/component'),
       common: path.resolve(__dirname, 'src/common'),
       api: path.resolve(__dirname, 'src/api'),
       base: path.resolve(__dirname, 'src/base'),
       store: path.resolve(__dirname, 'src/store'),
-      hoc: path.resolve(__dirname, 'src/hoc'),
+      hoc: path.resolve(__dirname, 'src/hoc')
     }
   },
   module: {
