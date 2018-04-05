@@ -6,7 +6,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'js/[name]-[hash:5].js'
+    filename: 'js/[name].js'
   },
   resolve: {
     alias: {
@@ -64,7 +64,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html'
     }),
-    new ExtractTextPlugin("css/[name]-[hash:5].css")
+    new ExtractTextPlugin("css/[name].css")
   ],
   devServer: {
     contentBase: path.join(__dirname, "dist"),

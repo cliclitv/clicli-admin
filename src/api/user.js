@@ -33,5 +33,5 @@ export function getUserInfo(id) {
 
 // 用户退出
 export function logout() {
-  return axios.post('user/logout')
+  return axios.post('/user/logout')
 }
