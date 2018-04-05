@@ -1,27 +1,21 @@
 import React from 'react'
 
-import {Link, Redirect, withRouter} from 'react-router-dom'
-import {adminAuth} from 'hoc/auth/auth'
+import {Link, Redirect} from 'react-router-dom'
 import {onLogout} from "store/user-smox"
+import {adminAuth} from "hoc/auth/auth"
 
 
 import './header.css'
 import {connect} from "smox"
 
-@connect(state => state, {onLogout})
+@connect(state => state,{onLogout})
 @adminAuth
-@withRouter
 class Header extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
 
   render() {
-    console.log(this.props)
     return (
       <header>
-        {this.props.isAuth===false? <Redirect to={this.props.redirectTo}/> : null}
+        {this.props.redirectTo? <Redirect to={this.props.redirectTo}/> : null}
         <ul>
           <Link to='/'>
             <li>控制台</li>

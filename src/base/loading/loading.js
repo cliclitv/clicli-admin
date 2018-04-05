@@ -10,18 +10,31 @@ class Loading extends React.Component {
     }
   }
 
+  componentWillMount() {
+    this._isMounted = true
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false
+  }
+
   render() {
     axios.interceptors.request.use((config) => {
-      this.setState({
-        isShow: true
-      })
+      if (this._isMounted) {
+        this.setState({
+          isShow: true
+        })
+      }
+
       return config
     })
     axios.interceptors.response.use((config) => {
+      if (this._isMounted) {
+        this.setState({
+          isShow: false
+        })
+      }
 
-      this.setState({
-        isShow: false
-      })
       return config
     })
     if (this.state.isShow === true) {

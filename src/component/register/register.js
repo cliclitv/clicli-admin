@@ -10,7 +10,8 @@ class Home extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      msg: ''
+      msg: '',
+      bg: ''
     }
 
     this.onRegister = this.onRegister.bind(this)
@@ -20,7 +21,8 @@ class Home extends React.Component {
   onRegister() {
     if (!this.props.state.name || !this.props.state.pwd || !this.props.state.repeatPwd || !this.props.state.qq) {
       return this.setState({
-        msg: '都要填写都要填(〃＞皿＜)！'
+        msg: '都要填写都要填(〃＞皿＜)！',
+        bg: '#ef736e'
       })
     }
     register(this.props.state).then(res => {
@@ -56,7 +58,7 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        {this.state.msg ? <TopTip text={this.state.msg}/> : null}
+        {this.state.msg ? <TopTip text={this.state.msg} bg={this.state.bg}/> : null}
 
         <div className="login">
           <h1>注册</h1>

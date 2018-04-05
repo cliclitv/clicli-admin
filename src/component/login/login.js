@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {Link,withRouter} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
 
 import {onLogin} from 'store/user-smox'
 import {connect} from 'smox'
@@ -14,12 +14,6 @@ import './login.css'
 @handleForm
 @withRouter
 class Login extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      msg: ''
-    }
-  }
 
   onKeyUp(e) {
     if (e.keyCode === 13) {
@@ -40,7 +34,6 @@ class Login extends React.Component {
         {this.props.msg ? <TopTip text={this.props.msg} bg={this.props.bg}/> : null}
 
         <div className="login">
-
           <h1>登录</h1>
           <ul>
             <li><input type="text" placeholder="用户名" onChange={e => this.props.handleChange('name', e.target.value)}

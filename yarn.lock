@@ -5599,9 +5599,9 @@ slide@^1.1.5:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/slide/-/slide-1.1.6.tgz#56eb027d65b4d2dce6cb2e2d32c4d4afc9e1d707"
 
-smox@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/smox/-/smox-1.0.3.tgz#db13ca429f91dbf4e30dc82cc672804906a04cb2"
+smox@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/smox/-/smox-1.0.5.tgz#151e3bd2abc5c61407542ed233c8bfb78243eff4"
 
 snapdragon-node@^2.0.1:
   version "2.1.1"
