@@ -35,7 +35,7 @@ class Markdown extends React.Component {
   render() {
     return (
       <div className="simpleMDE">
-        <textarea ref={e => this.marked = e}></textarea>
+        <textarea ref={e => this.marked = e} disabled></textarea>
       </div>
     )
   }
