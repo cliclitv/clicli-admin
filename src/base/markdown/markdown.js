@@ -1,6 +1,6 @@
 import React from 'react'
 import Mde from 'simplemde'
-import './simplemde.css'
+import './markdown.css'
 
 class Markdown extends React.Component {
 

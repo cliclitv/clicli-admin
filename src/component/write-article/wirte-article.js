@@ -2,7 +2,7 @@ import React from 'react'
 import {writeArticle, getOneArticle, update} from 'api/article'
 import {adminAuth} from "hoc/auth/auth"
 
-import Markdown from 'base/mk-editor/markdown'
+import Markdown from 'base/markdown/markdown'
 import TopTip from 'base/top-tip/top-tip'
 
 import './write-article.css'
