@@ -1,16 +1,11 @@
 import {login, logout} from 'api/user'
 import {removeStorage, setStorage} from 'common/js/localstorage'
 
-const initState = {
-  name: '111',
-  pwd: '',
-  msg: '',
-  bg: '',
-  redirectTo: '',
-  isAuth: false
-}
+// const initState = {
+//
+// }
 
-export function user(state=initState, action) {
+export function user(state={}, action) {
   switch (action.type) {
     case 'loginSuccess':
       return {...state, bg: '#b4d896', isAuth: true, msg: action.msg, ...action.payload}
