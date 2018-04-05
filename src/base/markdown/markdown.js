@@ -16,7 +16,7 @@ class Markdown extends React.Component {
 
   loadEditor() {
     this.mde = new Mde({
-      element: document.getElementById("marked"),
+      element:this.marked,
       autoDownloadFontAwesome: true,
       status: false,
       spellChecker: false,
@@ -33,10 +33,9 @@ class Markdown extends React.Component {
   }
 
   render() {
-
     return (
       <div className="simpleMDE">
-        <textarea id="marked"></textarea>
+        <textarea ref={e => this.marked = e}></textarea>
       </div>
     )
   }
