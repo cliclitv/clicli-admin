@@ -24,7 +24,7 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        exclude: /(node_modules)/,
+        exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
@@ -71,6 +71,7 @@ module.exports = {
     compress: true,
     port: 1122,
     historyApiFallback: true,
+    hot: true,
     proxy: {
       '/user/': {
         target: 'http://localhost:4000'
