@@ -124,7 +124,7 @@ class WriteArticle extends React.Component {
           <option value="music">音乐</option>
           <option value="game">游戏</option>
           <option value="novel">小说</option>
-          <option value="news">资讯</option>
+          <option value="news">号外</option>
           <option value="other">其他</option>
         </select></span>
           <span><select onChange={e => this.handleChange('status', e.target.value)}
