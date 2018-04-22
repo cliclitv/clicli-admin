@@ -80,6 +80,9 @@ module.exports = {
       },
       '/article/': {
         target: 'http://localhost:4000'
+      },
+      '/option/': {
+        target: 'http://localhost:4000'
       }
     }
   }

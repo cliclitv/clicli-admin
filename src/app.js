@@ -14,6 +14,7 @@ import {Route, Switch} from 'react-router-dom'
 import WriteArticle from "component/write-article/wirte-article"
 import UserList from "component/user-list/user-list"
 import EditorUser from 'component/editor-user/editor-user'
+import Option from 'component/option/option'
 
 
 class App extends React.Component {
@@ -34,6 +35,7 @@ class App extends React.Component {
               <Route path='/article/:author' component={ArticleList} key='author'/>
               <Route path='/articles' component={ArticleList} key='all'/>
               <Route path='/users' component={UserList}/>
+              <Route path='/options' component={Option}/>
               <Route path='/' component={UserInfo}/>
             </Switch>
             <Footer/>

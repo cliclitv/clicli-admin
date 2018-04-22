@@ -8,14 +8,14 @@ import {adminAuth} from "hoc/auth/auth"
 import './header.css'
 import {connect} from "smox"
 
-@connect(state => state,{onLogout})
+@connect(state => state, {onLogout})
 @adminAuth
 class Header extends React.Component {
 
   render() {
     return (
       <header>
-        {this.props.redirectTo? <Redirect to={this.props.redirectTo}/> : null}
+        {this.props.redirectTo ? <Redirect to={this.props.redirectTo}/> : null}
         <ul>
           <Link to='/'>
             <li>控制台</li>
@@ -36,11 +36,13 @@ class Header extends React.Component {
               </ul>
             </li>
             : null}
-          {this.props.state.role === 'admin' ? <li>设置</li> : null}
+          {this.props.state.role === 'admin' ? <Link to='/options'>
+            <li>设置</li>
+          </Link> : null}
           <li onClick={this.props.onLogout} className="logout">
             退出
           </li>
-          <a href="/" target="_blank">
+          <a href="http://www.idanmu.cc" target="_blank">
             <li className="logout">
               网站首页
             </li>
