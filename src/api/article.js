@@ -2,7 +2,12 @@ import axios from 'axios'
 
 // 获取所有文章
 export function articleList() {
-  return axios.get('/article/article')
+  return axios.get('/article/article', {
+    params: {
+      page: 1,
+      pageSize: 20
+    }
+  })
 }
 
 // 根据作者获取文章

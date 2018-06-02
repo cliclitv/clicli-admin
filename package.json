@@ -16,7 +16,7 @@
     "react-dom": "^16.3.0",
     "react-router-dom": "^4.2.2",
     "simplemde": "^1.11.2",
-    "smox":"^1.1.2"
+    "smox":"^1.1.4"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

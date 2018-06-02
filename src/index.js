@@ -10,7 +10,7 @@ import './common/style/index.css'
 import './common/style/iconfont.css'
 
 import { store } from './store/index'
-import { Provider } from './smox'
+import { Provider } from 'smox'
 
 
 ReactDom.render((
