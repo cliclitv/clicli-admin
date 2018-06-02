@@ -21,6 +21,12 @@ export function userList() {
   return axios.get('/user/user')
 }
 
+// 删除用户
+
+export function deleteUser(id) {
+  return request.post('/user/delete', id)
+}
+
 // 查找单一用户信息
 
 export function getUserInfo(id) {

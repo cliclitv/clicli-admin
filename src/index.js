@@ -9,10 +9,8 @@ import './common/style/reset.css'
 import './common/style/index.css'
 import './common/style/iconfont.css'
 
-import {createStore,Provider,applyMiddleware, thunk ,arrayThunk} from 'smox'
-import {user} from "./store/user-smox"
-
-const store = createStore(user,applyMiddleware(thunk,arrayThunk))
+import { store } from './store/index'
+import { Provider } from './smox'
 
 
 ReactDom.render((
