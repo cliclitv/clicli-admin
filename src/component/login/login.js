@@ -2,14 +2,14 @@ import React from 'react'
 
 import {Link, withRouter} from 'react-router-dom'
 
-import {withStore} from 'smox'
+import {connect} from 'smox'
 import {handleForm} from "hoc/handle-form/handle-form"
 
 import TopTip from 'base/top-tip/top-tip'
 
 import './login.css'
 
-@withStore
+@connect(['isAuth'],[],['onLogin'])
 @handleForm
 @withRouter
 class Login extends React.Component {

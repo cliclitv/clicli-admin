@@ -1,15 +1,18 @@
 
 # idanmu-admin
->对原loki-admin项目的重写，主要是移除mobx，换用我们自己的redux like库SMOX
+>对原 loki-admin 项目的重写，主要是移除 mobx ，换用自研的状态管理库 smox
 
-越是对redux深入理解，越发现我们不需要redux，传上来为了留念，证明我也是研究过redux的::>_<::
-这个项目使用了我们自造的库smox，同时用了正妹的anu，其实还是很ok的
+为了给 smox 做 demo ，我将我们网站的项目源码传上来，smox 在我们项目中完全 ojbk
+
+[smox 地址参见→](https://github.com/132yse/smox)
+
+代码主要集中在 store 文件夹，如果喜欢，欢迎 star ！
 
 ### 技术栈
 * webpack4
-* react16.3(anu)
+* react16.4
 * react-router4
-* smox
+* smox1.2
 
 ## about me
 * blog: [@伊撒尔の罗德欧加](http://www.yisaer.com)

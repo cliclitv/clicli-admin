@@ -2,10 +2,10 @@ import React from 'react'
 
 import {Link, Redirect} from 'react-router-dom'
 import {adminAuth} from "hoc/auth/auth"
-import {withStore} from "smox"
+import {connect} from "smox"
 
 import './header.css'
-@withStore
+@connect([],[],['onLogout'])
 @adminAuth
 class Header extends React.Component {
 

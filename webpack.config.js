@@ -11,8 +11,6 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'react': 'anujs',
-      'react-dom': 'anujs',
       component: path.resolve(__dirname, 'src/component'),
       common: path.resolve(__dirname, 'src/common'),
       api: path.resolve(__dirname, 'src/api'),

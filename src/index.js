@@ -9,12 +9,12 @@ import './common/style/reset.css'
 import './common/style/index.css'
 import './common/style/iconfont.css'
 
-import { store } from './store/index'
-import { Provider } from 'smox'
+import {store} from './store/index'
+import {Provider} from 'smox'
 
 
 ReactDom.render((
-  <Provider value={store}>
+  <Provider store={store}>
     <BrowserRouter>
       <App/>
     </BrowserRouter>
