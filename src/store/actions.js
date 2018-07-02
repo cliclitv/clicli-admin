@@ -14,6 +14,12 @@ export default {
         setStorage('user-info', res.data.result)
         commit('login', res.data)
       }
+      if (res.data.code === 1) {
+        commit('errMsg', res.data.msg)
+        setTimeout(() => {
+          commit('errMsg', '')
+        }, 4500)
+      }
     })
   },
   onLogout({commit}) {
