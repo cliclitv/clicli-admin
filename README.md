@@ -6,7 +6,8 @@
 
 [smox 地址参见→](https://github.com/132yse/smox)
 
-代码主要集中在 store 文件夹，如果喜欢，欢迎 star ！
+代码主要集中在 store 文件夹，如果喜欢，欢迎试用与 star ！
+啊不要 star 这个项目，要给 smox 加星星啊！
 
 ### 技术栈
 * webpack4

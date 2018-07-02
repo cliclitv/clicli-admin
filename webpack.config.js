@@ -67,6 +67,7 @@ module.exports = {
     new ExtractTextPlugin("css/[name].css")
   ],
   devServer: {
+    headers: {'Access-Control-Allow-Origin': '*'},
     contentBase: path.join(__dirname, "dist"),
     compress: true,
     port: 1122,
@@ -74,13 +75,13 @@ module.exports = {
     hot: true,
     proxy: {
       '/user/': {
-        target: 'http://localhost:4000'
+        target: 'http://admin.idanmu.cc'
       },
       '/article/': {
-        target: 'http://localhost:4000'
+        target: 'http://admin.idanmu.cc'
       },
       '/option/': {
-        target: 'http://localhost:4000'
+        target: 'http://admin.idanmu.cc'
       }
     }
   }

@@ -2,10 +2,13 @@ import React from 'react'
 
 import {Link, Redirect} from 'react-router-dom'
 import {adminAuth} from "hoc/auth/auth"
-import {connect} from "smox"
+import {map} from "smox"
 
 import './header.css'
-@connect([],[],['onLogout'])
+@map({
+  state:['redirectTo'],
+  actions:['onLogout']
+})
 @adminAuth
 class Header extends React.Component {
 

@@ -1,3 +1,6 @@
 export default {
-  isAuth: false
+  isAuth: false,
+  redirectTo: '',
+  bg: '',
+  msg: ''
 }

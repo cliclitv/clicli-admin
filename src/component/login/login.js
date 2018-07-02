@@ -2,14 +2,17 @@ import React from 'react'
 
 import {Link, withRouter} from 'react-router-dom'
 
-import {connect} from 'smox'
+import {map} from 'smox'
 import {handleForm} from "hoc/handle-form/handle-form"
 
 import TopTip from 'base/top-tip/top-tip'
 
 import './login.css'
 
-@connect(['isAuth'],[],['onLogin'])
+@map({
+  state: ['isAuth','msg','bg'],
+  actions: ['onLogin']
+})
 @handleForm
 @withRouter
 class Login extends React.Component {
