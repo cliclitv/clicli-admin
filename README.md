@@ -9,6 +9,10 @@
 代码主要集中在 store 文件夹，如果喜欢，欢迎试用与 star ！
 啊不要 star 这个项目，要给 smox 加星星啊！
 
+### 演示
+[http://admin.idanmu.cc](http://admin.idanmu.cc)
+用户名：1 密码：1
+
 ### 技术栈
 * webpack4
 * react16.4
