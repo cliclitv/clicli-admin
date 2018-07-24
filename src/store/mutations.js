@@ -8,9 +8,9 @@ export default {
     state.msg = msg
     state.bg = '#ef736e'
   },
-  logout(state, data) {
+  logout(state) {
     state.isAuth = false
-    state.msg = data.msg
+    state.msg = '退出成功啦'
     state.bg = '#b4d896'
     state.redirectTo = '/login'
   }

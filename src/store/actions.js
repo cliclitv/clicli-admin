@@ -10,11 +10,11 @@ export default {
       }, 4500)
     }
     return login(user).then(res => {
-      if (res.data.code === 0) {
-        setStorage('user-info', res.data.result)
+      if (res.data.code === 201) {
+        setStorage('user-info', res.data.user)
         commit('login', res.data)
       }
-      if (res.data.code === 1) {
+      if (res.data.code !== 201) {
         commit('errMsg', res.data.msg)
         setTimeout(() => {
           commit('errMsg', '')
@@ -24,7 +24,7 @@ export default {
   },
   onLogout({commit}) {
     return logout().then(res => {
-      if (res.data.code === 0) {
+      if (res.data.code === 201) {
         removeStorage('user-info')
         commit('logout', res.data)
         setTimeout(() => {

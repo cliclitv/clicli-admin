@@ -1,6 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const webpack = require('webpack')
 
 module.exports = {
@@ -34,10 +34,11 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: "css-loader"
-        })
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader"
+        ]
+
       },
       {
         test: /\.(png|jpg|gif)$/,
@@ -64,7 +65,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html'
     }),
-    new ExtractTextPlugin("css/[name].css")
+    new MiniCssExtractPlugin({
+      filename: "../css/[name].css",
+      chunkFilename: "css/[id].css"
+    }),
   ],
   devServer: {
     headers: {'Access-Control-Allow-Origin': '*'},
@@ -74,14 +78,8 @@ module.exports = {
     historyApiFallback: true,
     hot: true,
     proxy: {
-      '/user/': {
-        target: 'http://admin.idanmu.cc'
-      },
-      '/article/': {
-        target: 'http://admin.idanmu.cc'
-      },
-      '/option/': {
-        target: 'http://admin.idanmu.cc'
+      '/': {
+        target: 'http://localhost:4000'
       }
     }
   }

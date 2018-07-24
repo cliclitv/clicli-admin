@@ -2,13 +2,13 @@ import axios from 'axios'
 
 // 用户登录
 export function login(user) {
-  return axios.post('/user/login', user)
+  return axios.post('/login', user)
 }
 
 
 // 用户注册
 export function register(user) {
-  return axios.post('/user/register', user)
+  return axios.post('/register', {name: user.name, pwd: name.pwd, qq: parseInt(user.qq), role: 'user', desc: ''})
 }
 
 // 更新用户信息

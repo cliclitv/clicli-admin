@@ -3,14 +3,20 @@ import React from 'react'
 import {Link, Redirect} from 'react-router-dom'
 import {adminAuth} from "hoc/auth/auth"
 import {map} from "smox"
+import Cookies from 'js-cookie'
 
 import './header.css'
+
 @map({
-  state:['redirectTo'],
-  actions:['onLogout']
+  state: ['redirectTo'],
+  mutations: ['logout']
 })
 @adminAuth
 class Header extends React.Component {
+  onLogout(){
+    Cookies.remove('uname')
+    this.props.logout()
+  }
 
   render() {
     return (
@@ -39,7 +45,7 @@ class Header extends React.Component {
           {this.props.state.role === 'admin' ? <Link to='/options'>
             <li>设置</li>
           </Link> : null}
-          <li onClick={this.props.onLogout} className="logout">
+          <li onClick={this.onLogout.bind(this)} className="logout">
             退出
           </li>
           <a href="http://www.idanmu.cc" target="_blank">

@@ -32,7 +32,7 @@ class Home extends React.Component {
       return
     }
     register(this.props.state).then(res => {
-      if (res.status === 200 && res.data.code === 0) {
+      if (res.status === 200 && res.data.code === 201) {
         this.setState({
           msg: res.data.msg,
           bg: '#b4d896'
