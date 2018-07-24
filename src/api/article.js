@@ -54,10 +54,6 @@ export function update(post) {
 
 // 删除一篇文章
 export function deleteArticle(id) {
-  return axios.delete('/article/delete', {
-    params: {
-      id: id
-    }
-  })
+  return axios.delete(`/post/delete/${id}`)
 }
 
