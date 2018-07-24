@@ -10,6 +10,7 @@ export default {
       }, 4500)
     }
     return login(user).then(res => {
+      commit('errMsg', '')
       if (res.data.code === 201) {
         setStorage('user-info', res.data.user)
         commit('login', res.data)

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {Link, Redirect} from 'react-router-dom'
+import {Link, Redirect,withRouter} from 'react-router-dom'
 import {adminAuth} from "hoc/auth/auth"
 import {map} from "smox"
 import Cookies from 'js-cookie'
@@ -11,17 +11,18 @@ import './header.css'
   state: ['redirectTo'],
   mutations: ['logout']
 })
+@withRouter
 @adminAuth
 class Header extends React.Component {
   onLogout(){
-    Cookies.remove('uname')
     this.props.logout()
+    Cookies.remove('uname')
+    this.props.history.push('/login')
   }
 
   render() {
     return (
       <header>
-        {this.props.redirectTo ? <Redirect to={this.props.redirectTo}/> : null}
         <ul>
           <Link to='/'>
             <li>控制台</li>

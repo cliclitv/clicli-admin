@@ -12,6 +12,5 @@ export default {
     state.isAuth = false
     state.msg = '退出成功啦'
     state.bg = '#b4d896'
-    state.redirectTo = '/login'
   }
 }
