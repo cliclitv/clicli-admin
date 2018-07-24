@@ -14,7 +14,7 @@ import {Provider} from 'smox'
 
 
 ReactDom.render((
-  <Provider store={store}>
+  <Provider store={ store }>
     <BrowserRouter>
       <App/>
     </BrowserRouter>
