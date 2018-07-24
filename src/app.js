@@ -1,21 +1,52 @@
 import React from 'react'
 
-import Footer from 'component/footer/footer'
 import Header from 'component/header/header'
-import UserInfo from 'component/user-info/user-info'
-import Login from 'component/login/login'
+import Footer from 'component/footer/footer'
 import AuthRoute from 'component/authroute/authroute'
-import Register from 'component/register/register'
-import ArticleList from "component/article-list/article-list"
 import Loading from 'base/loading/loading'
-
+import Loadable from 'react-loadable'
 
 import {Route, Switch} from 'react-router-dom'
-import WriteArticle from "component/write-article/wirte-article"
-import UserList from "component/user-list/user-list"
-import EditorUser from 'component/editor-user/editor-user'
-import Option from 'component/option/option'
 
+const ArticleList = Loadable({
+  loader: () => import('component/article-list/article-list'),
+  loading: Loading,
+})
+
+const UserList = Loadable({
+  loader: () => import('component/user-list/user-list'),
+  loading: Loading,
+})
+
+const EditorUser = Loadable({
+  loader: () => import('component/editor-user/editor-user'),
+  loading: Loading,
+})
+
+const Option = Loadable({
+  loader: () => import('component/option/option'),
+  loading: Loading,
+})
+
+const Login = Loadable({
+  loader: () => import('component/login/login'),
+  loading: Loading,
+})
+
+const Register = Loadable({
+  loader: () => import('component/register/register'),
+  loading: Loading,
+})
+
+const UserInfo = Loadable({
+  loader: () => import('component/user-info/user-info'),
+  loading: Loading,
+})
+
+const WriteArticle = Loadable({
+  loader: () => import('component/write-article/wirte-article'),
+  loading: Loading,
+})
 
 class App extends React.Component {
 
