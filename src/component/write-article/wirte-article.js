@@ -19,7 +19,7 @@ class WriteArticle extends React.Component {
       sort: '',
       status: '',
       msg: '',
-      _id: this.props.match.params.editor,
+      id: this.props.match.params.editor,
       type: '撰写',
       bg: ''
     }
@@ -43,8 +43,8 @@ class WriteArticle extends React.Component {
   }
 
   loadArticle() {
-    if (this.state._id) {
-      getOneArticle(this.state._id).then((res) => {
+    if (this.state.id) {
+      getOneArticle(this.state.id).then((res) => {
 
         this.setState({
           title: res.data.result.title,
@@ -73,9 +73,9 @@ class WriteArticle extends React.Component {
 
     if (this.props.location.pathname !== '/write-article') {
       update(this.state).then((res) => {
-        if (res.status === 200 & res.data.code === 0) {
+        if (res.data.code === 201) {
           this.setState({
-            msg: res.data.msg,
+            msg: '更新成功啦！',
             type: '编辑',
             bg: '#b4d896'
           })
@@ -88,14 +88,13 @@ class WriteArticle extends React.Component {
       })
     } else {
       writeArticle(this.state).then((res) => {
-        if (res.status === 200 & res.data.code === 0) {
+        if (res.data.code === 201) {
           this.setState({
-            msg: res.data.msg,
+            msg: '添加成功啦',
             bg: '#b4d896'
           })
         }
         setTimeout(() => {
-          this.props.history.push('/editor-article/' + res.data.result._id)
           this.setState({
             msg: ''
           })

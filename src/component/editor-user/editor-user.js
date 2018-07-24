@@ -13,7 +13,7 @@ class EditorUser extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      _id: this.props.match.params.user,
+      id: this.props.match.params.user,
       msg: '',
       name: '',
       qq: '',
@@ -27,9 +27,9 @@ class EditorUser extends React.Component {
   }
 
   loadUser() {
-    getUserInfo(this.state._id).then(res => {
-      if (res.status === 200 & res.data.code === 0) {
-        this.setState(res.data.result)
+    getUserInfo(this.state.id).then(res => {
+      if (res.data.code === 201) {
+        this.setState(res.data.user)
       }
     })
   }
@@ -43,7 +43,7 @@ class EditorUser extends React.Component {
   handleClick() {
 
     update(this.state).then(res => {
-      if (res.data.code === 0) {
+      if (res.data.code === 201) {
         this.setState({
           msg: res.data.msg
         })

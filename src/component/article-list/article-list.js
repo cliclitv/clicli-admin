@@ -9,15 +9,15 @@ class ArticleList extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      article: []
+      posts: []
     }
   }
 
   loadArticles() {
     articleList().then((res) => {
-      if (res.status === 200 && res.data.code === 0) {
+      if (res.data.code === 201) {
         this.setState({
-          article: res.data.result
+          posts: res.data.posts
         })
       }
     })
@@ -25,9 +25,9 @@ class ArticleList extends React.Component {
 
   loadAuthorArticle() {
     authorArticle(this.props.match.params.author).then(res => {
-      if (res.status === 200 && res.data.code === 0) {
+      if (res.data.code === 201) {
         this.setState({
-          article: res.data.result
+          posts: res.data.posts
         })
       }
     })
@@ -44,7 +44,7 @@ class ArticleList extends React.Component {
     return (
       <div className="article-list">
         <h1>我的文章</h1>
-        <ListView list={this.state.article} refresh={this.refresh.bind(this)}/>
+        <ListView list={this.state.posts} refresh={this.refresh.bind(this)}/>
       </div>
     )
   }

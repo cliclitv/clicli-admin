@@ -8,17 +8,17 @@ export function login(user) {
 
 // 用户注册
 export function register(user) {
-  return axios.post('/register', {name: user.name, pwd: name.pwd, qq: parseInt(user.qq), role: 'user', desc: ''})
+  return axios.post('/register', {name: user.name, pwd: user.pwd, qq: parseInt(user.qq), role: 'user', desc: ''})
 }
 
 // 更新用户信息
 export function update(user) {
-  return axios.post('/user/update', user)
+  return axios.post(`/user/update/${user.id}`, user)
 }
 
 // 获取用户列表
 export function userList() {
-  return axios.get('/user/user')
+  return axios.get('/users?role=user')
 }
 
 // 删除用户
@@ -30,11 +30,7 @@ export function deleteUser(id) {
 // 查找单一用户信息
 
 export function getUserInfo(id) {
-  return axios.get('/user/info', {
-    params: {
-      id: id
-    }
-  })
+  return axios.get(`/user/${id}`)
 }
 
 // 用户退出

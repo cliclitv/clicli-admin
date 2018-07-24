@@ -58,13 +58,13 @@ class ListView extends React.Component {
 
           {this.props.list.map((item) => {
             return (
-              <li key={item._id}>
-                <div className="title"><Link to={`/editor-article/` + item._id}>{item.title}</Link></div>
+              <li key={item.id}>
+                <div className="title"><Link to={`/editor-article/` + item.id}>{item.title}</Link></div>
                 <div className="sort">{item.sort}</div>
                 <div className="status">{item.status}</div>
                 <div className="action"><i className="icon-font icon-del" onClick={() => {
-                  this.handleShow(item._id)
-                }}/><Link to={`/editor-article/` + item._id}><i className="icon-font icon-editor"/></Link></div>
+                  this.handleShow(item.id)
+                }}/><Link to={`/editor-article/` + item.id}><i className="icon-font icon-editor"/></Link></div>
               </li>
             )
           })}
