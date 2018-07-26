@@ -4,6 +4,8 @@ import Header from 'component/header/header'
 import Footer from 'component/footer/footer'
 import AuthRoute from 'component/authroute/authroute'
 import Loading from 'base/loading/loading'
+import EditorUser from 'component/editor-user/editor-user'
+import WriteArticle from 'component/write-article/wirte-article'
 import Loadable from 'react-loadable'
 
 import {Route, Switch} from 'react-router-dom'
@@ -17,12 +19,6 @@ const UserList = Loadable({
   loader: () => import('component/user-list/user-list'),
   loading: Loading,
 })
-
-const EditorUser = Loadable({
-  loader: () => import('component/editor-user/editor-user'),
-  loading: Loading,
-})
-
 const Option = Loadable({
   loader: () => import('component/option/option'),
   loading: Loading,
@@ -40,11 +36,6 @@ const Register = Loadable({
 
 const UserInfo = Loadable({
   loader: () => import('component/user-info/user-info'),
-  loading: Loading,
-})
-
-const WriteArticle = Loadable({
-  loader: () => import('component/write-article/wirte-article'),
   loading: Loading,
 })
 
