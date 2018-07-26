@@ -15,12 +15,12 @@ export function register(user) {
 
 // 更新用户信息
 export function update(user) {
-  return request.post(`/user/update/${user.id}`, user)
+  return request.post(`/user/update/${user.id}`, {name: user.name, pwd: user.pwd, qq: parseInt(user.qq), role: user.role, desc: user.desc})
 }
 
 // 获取用户列表
 export function userList() {
-  return request.get('/users?role=user')
+  return request.get('/users?role=user&page=1&pageSize=100')
 }
 
 // 查找单一用户信息

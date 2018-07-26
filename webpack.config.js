@@ -71,10 +71,16 @@ module.exports = {
     }),
   ],
   devServer: {
+    headers: {'Access-Control-Allow-Origin': '*'},
     contentBase: path.join(__dirname, "dist"),
     compress: true,
     port: 1122,
     historyApiFallback: true,
-    hot: true
+    hot: true,
+    proxy: {
+      '/api/login': {
+        target: 'http://api.chinko.cc/'
+      }
+    }
   }
 }
