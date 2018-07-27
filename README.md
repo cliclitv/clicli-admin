@@ -10,8 +10,7 @@
 啊不要 star 这个项目，要给 smox 加星星啊！
 
 ### 演示
-[http://admin.idanmu.cc](http://admin.idanmu.cc)
-用户名：1 密码：1
+[http://admin.chinko.cc](http://admin.chinko.cc)
 
 ### 技术栈
 * webpack4
