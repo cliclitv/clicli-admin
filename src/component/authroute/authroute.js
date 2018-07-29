@@ -8,14 +8,12 @@ class AuthRoute extends React.Component {
   componentDidMount() {
 
     // 是否登录
-    axios.get('http://api.chinko.cc/auth').then(res => {
-      if (res.status === 200) {
+    axios.get('/auth').then(res => {
         if (res.data.code === 401) {
           this.props.history.push('/login')
         }else {
           this.props.history.push('/')
         }
-      }
     })
 
   }
