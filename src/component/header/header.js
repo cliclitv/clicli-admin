@@ -49,7 +49,7 @@ class Header extends React.Component {
           <li onClick={this.onLogout.bind(this)} className="logout">
             退出
           </li>
-          <a href="http://www.idanmu.cc" target="_blank">
+          <a href="http://www.chinko.cc" target="_blank">
             <li className="logout">
               网站首页
             </li>
