@@ -5,7 +5,7 @@ const request = axios.create({
 
 // 获取所有文章
 export function articleList() {
-  return request.get('/posts', {
+  return request.get('/posts/type', {
     params: {
       status: 'public',
       page: 1,
@@ -16,7 +16,7 @@ export function articleList() {
 
 // 根据作者获取文章
 export function authorArticle(id) {
-  return request.get('/posts', {
+  return request.get('/posts/type', {
     params: {
       uid: id,
       page: 1,
