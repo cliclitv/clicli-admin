@@ -20,7 +20,7 @@ class UserInfo extends React.Component {
     const qq = `http://q2.qlogo.cn/headimg_dl?dst_uin=` + this.state.user.qq + `&spec=100`
     const router = `/article/` + this.state.user.id
     const info = `/editor-user/` + this.state.user.name
-    if (qq === null || router === null) {
+    if (!this.state.user) {
       window.reload()
     }
     return (

@@ -13,7 +13,6 @@ class AuthRoute extends React.Component {
         if (res.data.code === 401) {
           this.props.history.push('/login')
         }else {
-          this.props.history.push('/')
           const user = getStorage('user-info')
           if(!user){
             const name = Cookies.get('uname')
@@ -21,6 +20,7 @@ class AuthRoute extends React.Component {
               setStorage('user-info', res.data.user)
             })
           }
+          this.props.history.push('/')
         }
     })
 
