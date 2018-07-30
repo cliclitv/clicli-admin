@@ -2,6 +2,7 @@
 import {getStorage} from "common/js/localstorage"
 import React from "react"
 import Cookies from "js-cookie"
+import { Base64 } from 'js-base64'
 import {getUserInfo} from 'api/user'
 
 export function adminAuth(Component) {
@@ -20,7 +21,7 @@ export function adminAuth(Component) {
           role: role
         })
       } else {
-        const name = Cookies.get('uname')
+        const name = Base64.decode(Cookies.get('uname'))
         if (name) {
           getUserInfo(name).then(res => {
             this.setState({
