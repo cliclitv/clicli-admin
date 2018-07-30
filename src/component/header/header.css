@@ -20,7 +20,7 @@ header li:hover {
 header li:hover ul {
     display: block;
     position: absolute;
-    top: 39px;
+    top: 38px;
     left: 190px;
     background: #204f69;
     padding: 10px 0 15px 0;
