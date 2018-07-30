@@ -56,6 +56,6 @@ export function update(post) {
 
 // 删除一篇文章
 export function deleteArticle(id) {
-  return request.delete(`/post/delete/${id}`)
+  return request.post(`/post/delete/${id}`)
 }
 
