@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {Link, Redirect,withRouter} from 'react-router-dom'
+import {Link,withRouter} from 'react-router-dom'
 import {adminAuth} from "hoc/auth/auth"
 import {map} from "smox"
 import Cookies from 'js-cookie'
@@ -16,7 +16,10 @@ import './header.css'
 class Header extends React.Component {
   onLogout(){
     this.props.logout()
-    Cookies.remove('uname')
+    Cookies.remove('uname',{
+      path:'/',
+      domain:'chinko.cc'
+    })
     this.props.history.push('/login')
   }
 
