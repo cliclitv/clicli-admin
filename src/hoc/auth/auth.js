@@ -21,11 +21,14 @@ export function adminAuth(Component) {
         })
       } else {
         const name = Cookies.get('uname')
-        getUserInfo(name).then(res => {
-          this.setState({
-            role: res.data.user.role
+        if (name) {
+          getUserInfo(name).then(res => {
+            this.setState({
+              role: res.data.user.role
+            })
           })
-        })
+        }
+
       }
     }
 

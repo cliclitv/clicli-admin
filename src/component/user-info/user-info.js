@@ -20,12 +20,15 @@ class UserInfo extends React.Component {
 
   componentDidMount() {
     const name = Cookies.get('uname')
-    getUserInfo(name).then(res => {
-      setStorage('user-info', res.data.user)
-      this.setState({
-        user: res.data.user
+    if (name) {
+      getUserInfo(name).then(res => {
+        setStorage('user-info', res.data.user)
+        this.setState({
+          user: res.data.user
+        })
       })
-    })
+    }
+
   }
 
   render() {
