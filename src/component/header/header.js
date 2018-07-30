@@ -4,6 +4,7 @@ import {Link,withRouter} from 'react-router-dom'
 import {adminAuth} from "hoc/auth/auth"
 import {map} from "smox"
 import Cookies from 'js-cookie'
+import {removeStorage} from "common/js/localstorage"
 
 import './header.css'
 
@@ -20,6 +21,11 @@ class Header extends React.Component {
       path:'/',
       domain:'chinko.cc'
     })
+    Cookies.remove('uqq',{
+      path:'/',
+      domain:'chinko.cc'
+    })
+    removeStorage('user-info')
     this.props.history.push('/login')
   }
 
