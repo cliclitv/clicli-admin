@@ -1,6 +1,7 @@
 import React from 'react'
 import {writeArticle, getOneArticle, update} from 'api/article'
 import {adminAuth} from "hoc/auth/auth"
+import {getStorage} from "common/js/localstorage"
 
 import Markdown from 'base/markdown/markdown'
 import TopTip from 'base/top-tip/top-tip'
@@ -20,6 +21,7 @@ class WriteArticle extends React.Component {
       status: '',
       msg: '',
       id: this.props.match.params.editor,
+      uid: getStorage('user-info').id,
       type: '撰写',
       bg: ''
     }
@@ -45,7 +47,6 @@ class WriteArticle extends React.Component {
   loadArticle() {
     if (this.state.id) {
       getOneArticle(this.state.id).then((res) => {
-
         this.setState({
           title: res.data.result.title,
           content: res.data.result.content,
@@ -81,6 +82,7 @@ class WriteArticle extends React.Component {
           })
         }
         setTimeout(() => {
+          this.props.history.push(`/article/${this.state.uid}`)
           this.setState({
             msg: ''
           })

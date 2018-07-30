@@ -1,5 +1,4 @@
 import axios from 'axios'
-import {getStorage} from "common/js/localstorage"
 const request = axios.create({
   baseURL: 'http://api.chinko.cc'
 })
@@ -40,7 +39,7 @@ export function writeArticle(post) {
     content: post.content,
     status: post.status,
     sort: post.sort,
-    uid: getStorage('user-info').id
+    uid: post.uid
   })
 }
 
@@ -51,7 +50,7 @@ export function update(post) {
     content: post.content,
     status: post.status,
     sort: post.sort,
-    uid: getStorage('user-info').id
+    uid: post.uid
   })
 }
 
