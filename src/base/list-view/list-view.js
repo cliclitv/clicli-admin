@@ -57,6 +57,7 @@ class ListView extends React.Component {
         <ul style={{background: '#fff', padding: '0 10px'}}>
 
           {this.props.list ? this.props.list.map((item) => {
+            console.log(this.props.list)
             return (
               <li key={item.id}>
                 <div className="title"><Link to={`/editor-article/` + item.id}>{item.title}</Link></div>
@@ -67,8 +68,7 @@ class ListView extends React.Component {
                 }}/><Link to={`/editor-article/` + item.id}><i className="icon-font icon-editor"/></Link></div>
               </li>
             )
-          }) : <h1>没有需要审核的文章</h1>
-          }
+          }) : <h1>没有需要审核的文章</h1>}
         </ul>
       </div>
     )
