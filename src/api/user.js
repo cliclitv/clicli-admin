@@ -10,7 +10,7 @@ export function login(user) {
 
 // 用户注册
 export function register(user) {
-  return request.post('/register', {name: user.name, pwd: user.pwd, qq: parseInt(user.qq), role: 'user', desc: ''})
+  return request.post('/register', {name: user.name, pwd: user.pwd, qq: parseInt(user.qq), role: 'user', desc: '人懒，竟然没有签名~'})
 }
 
 // 更新用户信息
