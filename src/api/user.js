@@ -20,7 +20,7 @@ export function update(user) {
 
 // 获取用户列表
 export function userList() {
-  return request.get('/users?role=user&page=1&pageSize=100')
+  return request.get('/users?role=user&page=1&pageSize=1000')
 }
 
 // 查找单一用户信息
