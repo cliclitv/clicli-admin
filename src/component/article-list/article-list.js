@@ -1,7 +1,7 @@
 import React from 'react'
 import {articleList, authorArticle} from 'api/article'
 import ListView from '../../base/list-view/list-view'
-import {withRouter} from 'react-router-dom'
+import {withRouter,Link} from 'react-router-dom'
 
 
 @withRouter
@@ -14,7 +14,7 @@ class ArticleList extends React.Component {
   }
 
   loadArticles() {
-    articleList().then((res) => {
+    articleList(this.props.match.params.type).then((res) => {
       if (res.data.code === 201) {
         this.setState({
           posts: res.data.posts
@@ -34,7 +34,7 @@ class ArticleList extends React.Component {
   }
 
   refresh() {
-    if (this.props.location.pathname === '/articles') {
+    if (this.props.location.pathname === '/posts/wait'||this.props.location.pathname === '/posts/public') {
       return this.loadArticles()
     }
     this.loadAuthorArticle()
@@ -43,7 +43,8 @@ class ArticleList extends React.Component {
   render() {
     return (
       <div className="article-list">
-        <h1>我的文章</h1>
+        <Link to="/posts/wait" style={{padding:'20px'}}>待审核</Link>
+        <Link to="/posts/public">已发布</Link>
         <ListView list={this.state.posts} refresh={this.refresh.bind(this)}/>
       </div>
     )

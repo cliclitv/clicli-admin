@@ -56,7 +56,7 @@ class ListView extends React.Component {
         </li>
         <ul style={{background: '#fff', padding: '0 10px'}}>
 
-          {this.props.list.map((item) => {
+          {this.props.list ? this.props.list.map((item) => {
             return (
               <li key={item.id}>
                 <div className="title"><Link to={`/editor-article/` + item.id}>{item.title}</Link></div>
@@ -67,7 +67,7 @@ class ListView extends React.Component {
                 }}/><Link to={`/editor-article/` + item.id}><i className="icon-font icon-editor"/></Link></div>
               </li>
             )
-          })}
+          }) : null}
         </ul>
       </div>
     )

@@ -43,7 +43,10 @@ class Header extends React.Component {
           {this.props.state.role === 'admin' || this.props.state.role === 'editor' ?
             <li>管理
               <ul>
-                <Link to='/articles'>
+                <Link to='/posts/wait'>
+                  <li>审核文章</li>
+                </Link>
+                <Link to='/posts/public'>
                   <li>管理文章</li>
                 </Link>
                 <Link to='/users'>

@@ -3,11 +3,11 @@ const request = axios.create({
   baseURL: 'http://api.chinko.cc'
 })
 
-// 获取所有文章
-export function articleList() {
+// 根据状态获取文章
+export function articleList(status) {
   return request.get('/posts/type', {
     params: {
-      status: 'public',
+      status: status,
       page: 1,
       pageSize: 20
     }
