@@ -67,7 +67,8 @@ class ListView extends React.Component {
                 }}/><Link to={`/editor-article/` + item.id}><i className="icon-font icon-editor"/></Link></div>
               </li>
             )
-          }) : null}
+          }) : <h1>没有需要审核的文章</h1>
+          }
         </ul>
       </div>
     )
