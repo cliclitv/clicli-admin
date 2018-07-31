@@ -3,7 +3,7 @@ import {getStorage} from "common/js/localstorage"
 import React from "react"
 import Cookies from "js-cookie"
 import { Base64 } from 'js-base64'
-import {getUserInfo} from 'api/user'
+import {getUserByName} from 'api/user'
 
 export function adminAuth(Component) {
   return class WrapperComp extends React.Component {
@@ -23,7 +23,7 @@ export function adminAuth(Component) {
       } else {
         const name = Base64.decode(Cookies.get('uname'))
         if (name) {
-          getUserInfo(name).then(res => {
+          getUserByName(name).then(res => {
             this.setState({
               role: res.data.user.role
             })

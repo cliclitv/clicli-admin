@@ -3,7 +3,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import {getStorage, setStorage} from "common/js/localstorage"
 import {adminAuth} from "hoc/auth/auth"
-import {getUserInfo} from 'api/user'
+import {getUserByName} from 'api/user'
 
 
 import './user-info.css'
@@ -22,7 +22,7 @@ class UserInfo extends React.Component {
   componentDidMount() {
     const name = Base64.decode(Cookies.get('uname'))
     if (name) {
-      getUserInfo(name).then(res => {
+      getUserByName(name).then(res => {
         setStorage('user-info', res.data.user)
         this.setState({
           user: res.data.user
@@ -35,7 +35,7 @@ class UserInfo extends React.Component {
   render() {
     const qq = `http://q2.qlogo.cn/headimg_dl?dst_uin=` + this.state.user.qq + `&spec=100`
     const router = `/article/` + this.state.user.id
-    const info = `/editor-user/` + this.state.user.name
+    const info = `/editor-user/` + this.state.user.id
     return (
       <div className="user-info">
         <div className="avatar">

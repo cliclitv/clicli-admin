@@ -31,7 +31,7 @@ class UserList extends React.Component {
             const qq = `http://q2.qlogo.cn/headimg_dl?dst_uin=` + item.qq + `&spec=100`
             return (
               <li key={item.id}>
-                <Link to={`/editor-user/` + item.name}>
+                <Link to={`/editor-user/` + item.id}>
                   <div className="avatar"><img src={qq} alt=""/></div>
                   <div className="name">{item.name}</div>
                 </Link>
