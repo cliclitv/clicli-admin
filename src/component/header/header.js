@@ -49,7 +49,7 @@ class Header extends React.Component {
                 <Link to='/posts/public'>
                   <li>管理文章</li>
                 </Link>
-                <Link to='/users'>
+                <Link to='/users/user'>
                   <li>管理用户</li>
                 </Link>
               </ul>

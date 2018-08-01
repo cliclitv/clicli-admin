@@ -56,7 +56,7 @@ class App extends React.Component {
               <Route exact path='/editor-user/:user' component={EditorUser}/>
               <Route path='/article/:author' component={ArticleList} key='author'/>
               <Route path='/posts/:type' component={ArticleList} key={location.pathname}/>
-              <Route path='/users' component={UserList}/>
+              <Route path='/users/:role' component={UserList} key={location.pathname}/>
               <Route path='/options' component={Option}/>
               <Route path='/' component={UserInfo}/>
             </Switch>

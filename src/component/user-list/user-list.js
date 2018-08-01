@@ -14,7 +14,7 @@ class UserList extends React.Component {
   }
 
   componentDidMount() {
-    userList().then((res) => {
+    userList(this.props.match.params.role).then((res) => {
       if (res.data.code === 201) {
         this.setState({users: res.data.users})
       }
@@ -25,7 +25,12 @@ class UserList extends React.Component {
 
     return (
       <div className="user-list">
-        <h1>所有用户</h1>
+        <div className="role">
+          <Link to="/users/user" style={{padding: '20px'}}>用户</Link>
+          <Link to="/users/author">作者</Link>
+          <Link to="/users/editor" style={{padding: '20px'}}>审核</Link>
+        </div>
+
         <ul>
           {this.state.users.map((item) => {
             const qq = `http://q2.qlogo.cn/headimg_dl?dst_uin=` + item.qq + `&spec=100`
