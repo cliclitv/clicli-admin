@@ -5,7 +5,8 @@
     color: #fff;
     top: -40px;
     text-align: center;
-    animation: moveup 5s 1;
+    z-index: 999;
+    animation: moveup 5s ease-in-out infinite;
 }
 
 @keyframes moveup {
