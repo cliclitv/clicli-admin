@@ -42,6 +42,7 @@ class UserInfo extends React.Component {
           <img src={qq} alt="作者头像"/>
         </div>
         <div className="name">欢迎！{this.state.user.name} sama~</div>
+        <div className="uid"><span>uid : {this.state.user.id}</span></div>
         <div className="quick-start">
           快速开始：
           {this.props.state.role !== 'user' ? <span>

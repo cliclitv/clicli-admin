@@ -1,15 +1,17 @@
 import React from 'react'
 
 import {userList} from 'api/user'
-import {Link} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
 
 import './user-list.css'
 
+@withRouter
 class UserList extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      users: []
+      users: [],
+      uid: ''
     }
   }
 
@@ -18,6 +20,16 @@ class UserList extends React.Component {
       if (res.data.code === 201) {
         this.setState({users: res.data.users})
       }
+    })
+  }
+
+  selectUser() {
+    this.props.history.push(`/editor-user/${this.state.uid}`)
+  }
+
+  handleChange(uid) {
+    this.setState({
+      uid
     })
   }
 
@@ -32,7 +44,7 @@ class UserList extends React.Component {
         </div>
 
         <ul>
-          {this.state.users.map((item) => {
+          {this.props.location.pathname !== '/users/user' ? this.state.users.map((item) => {
             const qq = `http://q2.qlogo.cn/headimg_dl?dst_uin=` + item.qq + `&spec=100`
             return (
               <li key={item.id}>
@@ -42,7 +54,11 @@ class UserList extends React.Component {
                 </Link>
               </li>
             )
-          })}
+          }) : <div>
+            <input type="text" placeholder="请输入uid" onChange={e => this.handleChange(e.target.value)}/>
+            <button onClick={this.selectUser.bind(this)}>跳转</button>
+          </div>
+          }
         </ul>
       </div>
 

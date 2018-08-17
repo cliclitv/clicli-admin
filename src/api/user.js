@@ -37,12 +37,11 @@ export function userList(role) {
   return request.get('/users', {
     params: {
       role,
-      page: 1,
+      page:1,
       pageSize: 1000
     }
   })
 }
-
 // 根据ID查找用户信息
 
 export function getUserById(id) {
