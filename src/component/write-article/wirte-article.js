@@ -22,14 +22,15 @@ class WriteArticle extends React.Component {
       msg: '',
       id: this.props.match.params.editor,
       uid: getStorage('user-info').id,
-      type: '撰写',
-      bg: ''
+      text: '撰写',
+      bg: '',
+      type: ''
     }
   }
 
   componentDidMount() {
     this.loadArticle()
-    this.props.location.pathname === '/write-article' ? this.setState({type: '撰写'}) : this.setState({type: '编辑'})
+    this.props.location.pathname === '/write-article' ? this.setState({text: '撰写'}) : this.setState({text: '编辑'})
   }
 
   handleChange(key, val) {
@@ -51,6 +52,7 @@ class WriteArticle extends React.Component {
           title: res.data.result.title,
           content: res.data.result.content,
           sort: res.data.result.sort,
+          type: res.data.result.type,
           status: res.data.result.status,
           defaultValue: res.data.result.content
         })
@@ -59,7 +61,7 @@ class WriteArticle extends React.Component {
   }
 
   handleClick() {
-    if (!this.state.title || !this.state.content || !this.state.status || !this.state.sort) {
+    if (!this.state.title || !this.state.content || !this.state.status || !this.state.sort || !this.state.type) {
       this.setState({
         msg: '都要填写都要填(〃＞皿＜)！',
         bg: '#ef736e'
@@ -77,7 +79,7 @@ class WriteArticle extends React.Component {
         if (res.data.code === 201) {
           this.setState({
             msg: '更新成功啦！',
-            type: '编辑',
+            text: '编辑',
             bg: '#b4d896'
           })
         }
@@ -109,8 +111,7 @@ class WriteArticle extends React.Component {
     return (
       <div>{this.state.msg ? <TopTip text={this.state.msg} bg={this.state.bg}/> : null}
         <div className="write-article">
-
-          <h1>{this.state.type}文章</h1>
+          <h1>{this.state.text}文章</h1>
           <input type="text" placeholder="请输入标题"
                  value={this.state.title}
                  onChange={e => this.handleChange('title', e.target.value)}/>
@@ -127,6 +128,14 @@ class WriteArticle extends React.Component {
           <option value="novel">小说</option>
           <option value="news">号外</option>
           <option value="other">其他</option>
+        </select></span>
+          <span><select onChange={e => this.handleChange('type', e.target.value)}
+                        value={this.state.type}>
+          <option value="">分级</option>
+          <option value="bg">正常向</option>
+          <option value="bl">耽美向</option>
+          <option value="gl">百合向</option>
+          <option value="18x">和谐向</option>
         </select></span>
           <span><select onChange={e => this.handleChange('status', e.target.value)}
                         value={this.state.status}>

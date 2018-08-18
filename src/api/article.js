@@ -39,6 +39,7 @@ export function writeArticle(post) {
     content: post.content,
     status: post.status,
     sort: post.sort,
+    type:post.type,
     uid: post.uid
   })
 }
@@ -50,6 +51,7 @@ export function update(post) {
     content: post.content,
     status: post.status,
     sort: post.sort,
+    type:post.type,
     uid: post.uid
   })
 }

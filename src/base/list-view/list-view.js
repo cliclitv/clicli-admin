@@ -18,7 +18,6 @@ class ListView extends React.Component {
 
   handleDelete(id) {
     deleteArticle(id).then((res) => {
-      console.log(res.data)
       this.props.refresh()
     })
 
@@ -57,7 +56,6 @@ class ListView extends React.Component {
         <ul style={{background: '#fff', padding: '0 10px'}}>
 
           {this.props.list ? this.props.list.map((item) => {
-            console.log(this.props.list)
             return (
               <li key={item.id}>
                 <div className="title"><Link to={`/editor-article/` + item.id}>{item.title}</Link></div>
