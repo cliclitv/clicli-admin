@@ -135,7 +135,7 @@ class WriteArticle extends React.Component {
           <option value="bg">正常向</option>
           <option value="bl">耽美向</option>
           <option value="gl">百合向</option>
-          <option value="18x">和谐向</option>
+          <option value="18x">绅士向</option>
         </select></span>
           <span><select onChange={e => this.handleChange('status', e.target.value)}
                         value={this.state.status}>

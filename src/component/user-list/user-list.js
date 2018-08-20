@@ -44,21 +44,26 @@ class UserList extends React.Component {
         </div>
 
         <ul>
-          {this.props.location.pathname !== '/users/user' ? this.state.users.map((item) => {
-            const qq = `http://q2.qlogo.cn/headimg_dl?dst_uin=` + item.qq + `&spec=100`
-            return (
-              <li key={item.id}>
-                <Link to={`/editor-user/` + item.id}>
-                  <div className="avatar"><img src={qq} alt=""/></div>
-                  <div className="name">{item.name}</div>
-                </Link>
-              </li>
-            )
-          }) : <div>
-            <input type="text" placeholder="请输入uid" onChange={e => this.handleChange(e.target.value)}/>
-            <button onClick={this.selectUser.bind(this)}>跳转</button>
-          </div>
+          {this.props.location.pathname === '/users/user' ?
+            <div>
+              <input type="text" placeholder="请输入用户名" onChange={e => this.handleChange(e.target.value)}/>
+              <button onClick={this.selectUser.bind(this)}>跳转</button>
+            </div>
+            :
+            this.state.users.map((item) => {
+              const qq = `http://q2.qlogo.cn/headimg_dl?dst_uin=` + item.qq + `&spec=100`
+              return (
+                <li key={item.id}>
+                  <Link to={`/editor-user/` + item.id}>
+                    <div className="avatar"><img src={qq} alt=""/></div>
+                    <div className="name">{item.name}</div>
+                  </Link>
+                </li>
+              )
+            })
           }
+
+
         </ul>
       </div>
 

@@ -38,7 +38,7 @@ export function userList(role) {
     params: {
       role,
       page:1,
-      pageSize: 1000
+      pageSize: 100
     }
   })
 }
