@@ -1,6 +1,8 @@
 import axios from 'axios'
+import Cookies from 'js-cookie'
+
 const request = axios.create({
-  baseURL: 'http://api.chinko.cc'
+  baseURL: 'https://api.chinko.cc'
 })
 
 // 根据状态获取文章
@@ -39,7 +41,7 @@ export function writeArticle(post) {
     content: post.content,
     status: post.status,
     sort: post.sort,
-    type:post.type,
+    type: post.type,
     uid: post.uid
   })
 }
@@ -47,13 +49,18 @@ export function writeArticle(post) {
 // 更新文章
 export function update(post) {
   return request.post(`/post/update/${post.id}`, {
-    title: post.title,
-    content: post.content,
-    status: post.status,
-    sort: post.sort,
-    type:post.type,
-    uid: post.uid
-  })
+      title: post.title,
+      content: post.content,
+      status: post.status,
+      sort: post.sort,
+      type: post.type,
+      uid: post.uid
+    },
+    {
+      headers: {
+        'Token': Cookies.get('token')
+      }
+    })
 }
 
 // 删除一篇文章

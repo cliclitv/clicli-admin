@@ -1,7 +1,7 @@
 import React from 'react'
 
 import {Link} from 'react-router-dom'
-import {getStorage, setStorage} from "common/js/localstorage"
+import {setStorage} from "common/js/localstorage"
 import {adminAuth} from "hoc/auth/auth"
 import {getUserByName} from 'api/user'
 
@@ -35,7 +35,7 @@ class UserInfo extends React.Component {
   render() {
     const qq = `http://q2.qlogo.cn/headimg_dl?dst_uin=` + this.state.user.qq + `&spec=100`
     const router = `/article/` + this.state.user.id
-    const info = `/editor-user/` + this.state.user.id
+    const info = `/editor-user/` + this.state.user.name
     return (
       <div className="user-info">
         <div className="avatar">

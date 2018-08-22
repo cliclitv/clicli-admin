@@ -1,11 +1,10 @@
 import React from 'react'
 import axios from 'axios'
 import {withRouter} from 'react-router-dom'
-import {setStorage, getStorage} from "common/js/localstorage"
-import {getUserInfo} from "api/user"
-import Cookies from 'js-cookie'
+
 
 @withRouter
+
 class AuthRoute extends React.Component {
 
   componentDidMount() {
@@ -13,10 +12,10 @@ class AuthRoute extends React.Component {
       if (res.data.code === 401) {
         this.props.history.push('/login')
       } else {
+
         this.props.history.push('/')
       }
     })
-
   }
 
   render() {

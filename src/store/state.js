@@ -2,5 +2,6 @@ export default {
   isAuth: false,
   redirectTo: '',
   bg: '',
-  msg: ''
+  msg: '',
+  user:{}
 }
