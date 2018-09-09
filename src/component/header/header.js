@@ -19,11 +19,11 @@ class Header extends React.Component {
     this.props.logout()
     Cookies.remove('uname',{
       path:'/',
-      domain:'chinko.cc'
+      domain:'clicli.us'
     })
     Cookies.remove('uqq',{
       path:'/',
-      domain:'chinko.cc'
+      domain:'clicli.us'
     })
     removeStorage('user-info')
     this.props.history.push('/login')
@@ -61,7 +61,7 @@ class Header extends React.Component {
           <li onClick={this.onLogout.bind(this)} className="logout">
             退出
           </li>
-          <a href="http://www.chinko.cc" target="_blank">
+          <a href="https://www.clicli.us" target="_blank">
             <li className="logout">
               网站首页
             </li>
