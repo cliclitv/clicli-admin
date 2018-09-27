@@ -8,12 +8,11 @@ import {withRouter} from 'react-router-dom'
 class AuthRoute extends React.Component {
 
   componentDidMount() {
-    axios.get('/auth').then(res => {
-      if (res.data.code === 401) {
-        this.props.history.push('/login')
-      } else {
-
+    axios.get('http://api.chinko.cc/auth').then(res => {
+      if (res.data.code === 201) {
         this.props.history.push('/')
+      } else {
+        this.props.history.push('/login')
       }
     })
   }

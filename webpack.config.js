@@ -26,11 +26,7 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['env', 'react', 'stage-1'],
-            plugins: ['transform-decorators-legacy']
-          }
+          loader: 'babel-loader'
         }
       },
       {

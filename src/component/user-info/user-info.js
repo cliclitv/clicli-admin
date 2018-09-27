@@ -8,7 +8,7 @@ import {getUserByName} from 'api/user'
 
 import './user-info.css'
 import Cookies from "js-cookie"
-import { Base64 } from 'js-base64'
+import {Base64} from 'js-base64'
 
 @adminAuth
 class UserInfo extends React.Component {
@@ -20,8 +20,9 @@ class UserInfo extends React.Component {
   }
 
   componentDidMount() {
-    const name = Base64.decode(Cookies.get('uname'))
+    let name = Cookies.get('uname')
     if (name) {
+      name = Base64.decode(name)
       getUserByName(name).then(res => {
         setStorage('user-info', res.data.user)
         this.setState({
