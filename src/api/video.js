@@ -34,8 +34,8 @@ export function addVideo(oid, title, content, pid, uid) {
 }
 
 // 修改视频
-export function updateVideo(oid, title, content, pid, uid) {
-  return request.post('/video/update', {
+export function updateVideo({id, oid, title, content, pid, uid}) {
+  return request.post(`/video/update/${id}`, {
     oid: parseInt(oid),
     title,
     content,
@@ -45,8 +45,8 @@ export function updateVideo(oid, title, content, pid, uid) {
 }
 
 // 删除评论
-export function deleteComment() {
-  return request.delete('/comment/delete')
+export function deleteVideo(id) {
+  return request.delete(`/video/delete/${id}`)
 }
 
 // 根据地址获取真实链接
