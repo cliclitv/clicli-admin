@@ -6,6 +6,7 @@ import AuthRoute from 'component/authroute/authroute'
 import Loading from 'base/loading/loading'
 import EditorUser from 'component/editor-user/editor-user'
 import WriteArticle from 'component/write-article/wirte-article'
+import EditorVideo from 'component/editor-video/editor-video'
 import Loadable from 'react-loadable'
 
 import {Route, Switch} from 'react-router-dom'
@@ -53,6 +54,8 @@ class App extends React.Component {
             <Switch>
               <Route path='/editor-article/:editor' component={WriteArticle} key='editor'/>
               <Route path='/write-article' component={WriteArticle} key='write'/>
+              <Route path='/editor-video/:id' component={EditorVideo} key='editor-video'/>
+              <Route path='/add-video' component={EditorVideo} key='add-video'/>
               <Route exact path='/editor-user/:user' component={EditorUser}/>
               <Route path='/article/:author' component={ArticleList} key='author'/>
               <Route path='/posts/:type' component={ArticleList} key={location.pathname}/>

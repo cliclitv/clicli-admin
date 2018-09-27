@@ -37,3 +37,8 @@
     cursor: pointer;
     padding-right: 10px;
 }
+
+.reach-box input{
+    background: #fff!important;
+    margin: 20px 0;
+}

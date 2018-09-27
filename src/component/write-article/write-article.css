@@ -44,8 +44,22 @@
     font-size: 13px;
 }
 
-.write-article .video-list li{
+.write-article .video-list li {
+    height: 40px;
+    width: 40px;
+    text-align: center;
     background: #fff;
     list-style: none;
     display: inline-block;
+    margin: 25px 15px 25px 0;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    border: 1px solid #467B96;
+}
+
+.write-article .video-list .add{
+    font-weight: bold;
+    background: #467B96;
+    color: #fff;
 }

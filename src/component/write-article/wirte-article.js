@@ -159,14 +159,18 @@ class WriteArticle extends React.Component {
           <div className="video-list">
             {this.state.videos.map(item => {
               return (
-                <li key={item.id}>
-                  <div className="title"><Link to={`/editor-video/` + item.id}>{item.oid}</Link></div>
-                  <div className="action"><i className="icon-font icon-del" onClick={() => {
-                    this.handleShow(item.id)
-                  }}/><Link to={`/editor-video/` + item.id}><i className="icon-font icon-editor"/></Link></div>
-                </li>
+                <Link to={`/editor-video/` + item.id} key={item.id}>
+                  <li >
+                    <div className="title">{item.oid}</div>
+                  </li>
+                </Link>
               )
             })}
+            <Link to={`/add-video`}>
+              <li className="add">
+                <div >＋</div>
+              </li>
+            </Link>
           </div>
           <div>
             <button onClick={this.handleClick.bind(this)}>发布文章</button>

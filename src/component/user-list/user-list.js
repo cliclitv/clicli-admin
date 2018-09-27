@@ -2,6 +2,7 @@ import React from 'react'
 
 import {userList} from 'api/user'
 import {Link, withRouter} from 'react-router-dom'
+import ReachBox from 'base/reach-box/reach-box'
 
 import './user-list.css'
 
@@ -23,16 +24,6 @@ class UserList extends React.Component {
     })
   }
 
-  selectUser() {
-    this.props.history.push(`/editor-user/${this.state.uid}`)
-  }
-
-  handleChange(uid) {
-    this.setState({
-      uid
-    })
-  }
-
   render() {
 
     return (
@@ -45,11 +36,8 @@ class UserList extends React.Component {
 
         <ul>
           {this.props.location.pathname === '/users/user' ?
-            <div>
-              <input type="text" placeholder="请输入用户名" onChange={e => this.handleChange(e.target.value)}/>
-              <button onClick={this.selectUser.bind(this)}>跳转</button>
-            </div>
-            :
+            <ReachBox text='请输入用户名' prefix='/editor-user/'/>
+              :
             this.state.users.map((item) => {
               const qq = `http://q2.qlogo.cn/headimg_dl?dst_uin=` + item.qq + `&spec=100`
               return (
