@@ -10,7 +10,7 @@
 啊不要 star 这个项目，要给 smox 加星星啊！
 
 ### 演示
-[http://admin.chinko.cc](http://admin.chinko.cc)
+[http://admin.clicli.us](http://admin.clicli.us)
 
 ### 技术栈
 * webpack4
