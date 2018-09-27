@@ -48,7 +48,7 @@ class App extends React.Component {
         <Route path='/register' component={Register}/>
         <Route path='/' render={props => (
           <div>
-            <AuthRoute/>
+            {/*<AuthRoute/>*/}
             <Header/>
             <Switch>
               <Route path='/editor-article/:editor' component={WriteArticle} key='editor'/>
@@ -61,7 +61,7 @@ class App extends React.Component {
               <Route path='/' component={UserInfo}/>
             </Switch>
             <Footer/>
-            <Loading/>
+            {/*<Loading/>*/}
           </div>
         )}/>
       </Switch>

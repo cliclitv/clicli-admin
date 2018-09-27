@@ -43,3 +43,9 @@
     color: #666;
     font-size: 13px;
 }
+
+.write-article .video-list li{
+    background: #fff;
+    list-style: none;
+    display: inline-block;
+}

@@ -1,7 +1,9 @@
 import React from 'react'
 import {writeArticle, getOneArticle, update} from 'api/article'
+import {getVideos} from "api/video"
 import {adminAuth} from "hoc/auth/auth"
 import {getStorage} from "common/js/localstorage"
+import {Link} from 'react-router-dom'
 
 import Markdown from 'base/markdown/markdown'
 import TopTip from 'base/top-tip/top-tip'
@@ -24,12 +26,14 @@ class WriteArticle extends React.Component {
       uid: getStorage('user-info').id,
       text: '撰写',
       bg: '',
-      type: ''
+      type: '',
+      videos: []
     }
   }
 
   componentDidMount() {
     this.loadArticle()
+    this.loadVideo()
     this.props.location.pathname === '/write-article' ? this.setState({text: '撰写'}) : this.setState({text: '编辑'})
   }
 
@@ -55,6 +59,16 @@ class WriteArticle extends React.Component {
           type: res.data.result.type,
           status: res.data.result.status,
           defaultValue: res.data.result.content
+        })
+      })
+    }
+  }
+
+  loadVideo() {
+    if (this.state.id) {
+      getVideos(this.state.id, 1, 100).then(res => {
+        this.setState({
+          videos: res.data.videos
         })
       })
     }
@@ -120,14 +134,11 @@ class WriteArticle extends React.Component {
           <span><select onChange={e => this.handleChange('sort', e.target.value)}
                         value={this.state.sort}>
           <option value="">分类</option>
-          <option value="anime">动画</option>
-          <option value="comic">漫画</option>
-          <option value="imgpack">图包</option>
-          <option value="music">音乐</option>
-          <option value="game">游戏</option>
-          <option value="novel">小说</option>
-          <option value="news">号外</option>
-          <option value="other">其他</option>
+          <option value="xinfan">新番</option>
+          <option value="lianzai">连载</option>
+          <option value="wanjie">完结</option>
+          <option value="yuanchuang">原创</option>
+          <option value="wen">文字</option>
         </select></span>
           <span><select onChange={e => this.handleChange('type', e.target.value)}
                         value={this.state.type}>
@@ -145,6 +156,18 @@ class WriteArticle extends React.Component {
             {this.props.state.role === 'admin' || this.props.state.role === 'editor' ?
               <option value="public">发布</option> : null}
         </select></span>
+          <div className="video-list">
+            {this.state.videos.map(item => {
+              return (
+                <li key={item.id}>
+                  <div className="title"><Link to={`/editor-video/` + item.id}>{item.oid}</Link></div>
+                  <div className="action"><i className="icon-font icon-del" onClick={() => {
+                    this.handleShow(item.id)
+                  }}/><Link to={`/editor-video/` + item.id}><i className="icon-font icon-editor"/></Link></div>
+                </li>
+              )
+            })}
+          </div>
           <div>
             <button onClick={this.handleClick.bind(this)}>发布文章</button>
           </div>
