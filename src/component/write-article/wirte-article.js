@@ -125,7 +125,7 @@ class WriteArticle extends React.Component {
     return (
       <div>{this.state.msg ? <TopTip text={this.state.msg} bg={this.state.bg}/> : null}
         <div className="write-article">
-          <h1>{this.state.text}文章</h1>
+          <h1>{this.state.text}番剧</h1>
           <input type="text" placeholder="请输入标题"
                  value={this.state.title}
                  onChange={e => this.handleChange('title', e.target.value)}/>
@@ -173,7 +173,7 @@ class WriteArticle extends React.Component {
             </Link>
           </div>
           <div>
-            <button onClick={this.handleClick.bind(this)}>发布文章</button>
+            <button onClick={this.handleClick.bind(this)}>发布番剧</button>
           </div>
         </div>
       </div>
