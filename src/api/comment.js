@@ -23,7 +23,20 @@ export function addComment(comment) {
   return request.post('/comment/add', comment)
 }
 
-// 删除评论
-export function deleteComment(pid) {
-  return request.delete(`/comment/delete${id}`)
+// 根据id删除评论
+export function deleteCommentById(id) {
+  return request.post(`/comment/delete`,{
+    params:{
+      id
+    }
+  })
+}
+
+// 根据pid删除评论
+export function deleteCommentByPid(pid) {
+  return request.post(`/comment/delete`,{
+    params:{
+      pid
+    }
+  })
 }

@@ -4,6 +4,8 @@ import {Link} from 'react-router-dom'
 import Confirm from '../confirm/confirm'
 import {withRouter} from 'react-router-dom'
 import {deleteArticle} from 'api/article'
+import {deleteCommentByPid} from "api/comment"
+import {deleteVideoByPid} from "api/video"
 
 @withRouter
 
@@ -17,7 +19,7 @@ class ListView extends React.Component {
   }
 
   handleDelete(id) {
-    deleteArticle(id).then((res) => {
+    Promise.all([deleteArticle(id), deleteCommentByPid(id), deleteVideoByPid(id)]).then(() => {
       this.props.refresh()
     })
 

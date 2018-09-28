@@ -44,9 +44,22 @@ export function updateVideo({id, oid, title, content, pid, uid}) {
   })
 }
 
-// 删除评论
-export function deleteVideo(id) {
-  return request.post(`/video/delete/${id}`)
+// 根据id删除视频
+export function deleteVideoById(id) {
+  return request.post('/video/delete/',{
+    params:{
+      id
+    }
+  })
+}
+
+// 根据pid删除视频
+export function deleteVideoByPid(pid) {
+  return request.post('/video/delete/',{
+    params:{
+      pid
+    }
+  })
 }
 
 // 根据地址获取真实链接

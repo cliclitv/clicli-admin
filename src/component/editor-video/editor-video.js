@@ -2,7 +2,7 @@ import React from 'react'
 
 import TopTip from 'base/top-tip/top-tip'
 
-import {getVideo, updateVideo, deleteVideo} from "api/video"
+import {getVideo, updateVideo, deleteVideoById} from "api/video"
 import {adminAuth} from "hoc/auth/auth"
 import {withRouter} from 'react-router-dom'
 import {getStorage} from "common/js/localstorage"
@@ -51,16 +51,17 @@ class EditorVideo extends React.Component {
   }
 
   deleteVideo() {
-    deleteVideo(this.state.id).then(res => {
+    deleteVideoById(this.state.id).then(res => {
       if (res.data.code === 201) {
         this.setState({
           msg: '删除成功啦'
         })
         setTimeout(() => {
+          this.props.history.goBack()
           this.setState({
             msg: ''
           })
-        }, 5000)
+        }, 2000)
       }
     })
   }
@@ -74,10 +75,11 @@ class EditorVideo extends React.Component {
         })
       }
       setTimeout(() => {
+        this.props.history.goBack()
         this.setState({
           msg: ''
         })
-      }, 5000)
+      }, 2000)
     })
   }
 
