@@ -22,7 +22,7 @@ class EditorVideo extends React.Component {
       content: '',
       pid: '',
       uid: getStorage('user-info').id,
-      text: '编辑'
+      text: '修改'
     }
   }
 
@@ -32,7 +32,7 @@ class EditorVideo extends React.Component {
       this.setState({text: '添加'})
     } else {
       this.loadVideo()
-      this.setState({text: '编辑'})
+      this.setState({text: '修改'})
     }
   }
 

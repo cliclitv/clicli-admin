@@ -34,7 +34,7 @@ class WriteArticle extends React.Component {
   componentDidMount() {
     this.loadArticle()
     this.loadVideo()
-    this.props.location.pathname === '/write-article' ? this.setState({text: '撰写'}) : this.setState({text: '编辑'})
+    this.props.location.pathname === '/write-article' ? this.setState({text: '添加'}) : this.setState({text: '修改'})
   }
 
   handleChange(key, val) {
