@@ -46,7 +46,7 @@ export function updateVideo({id, oid, title, content, pid, uid}) {
 
 // 根据id删除视频
 export function deleteVideoById(id) {
-  return request.post('/video/delete/',{
+  return request.delete('/delete/video',{
     params:{
       id
     }
@@ -55,7 +55,7 @@ export function deleteVideoById(id) {
 
 // 根据pid删除视频
 export function deleteVideoByPid(pid) {
-  return request.post('/video/delete/',{
+  return request.delete('/delete/video',{
     params:{
       pid
     }

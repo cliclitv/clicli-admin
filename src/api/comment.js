@@ -5,14 +5,14 @@ const request = axios.create({
 })
 
 // 根据pid查找评论
-export function getComment(pid, page, pageSize) {
+export function getCommentByPid(pid, page, pageSize) {
   return request.get('/comments', {
     params: {pid, page, pageSize}
   })
 }
 
 // 根据 uid 查找评论
-export function getComment(uid, page, pageSize) {
+export function getCommentByUid(uid, page, pageSize) {
   return request.get('/comments', {
     params: {uid, page, pageSize}
   })
@@ -25,7 +25,7 @@ export function addComment(comment) {
 
 // 根据id删除评论
 export function deleteCommentById(id) {
-  return request.post(`/comment/delete`,{
+  return request.delete(`/delete/comment`,{
     params:{
       id
     }
@@ -34,7 +34,7 @@ export function deleteCommentById(id) {
 
 // 根据pid删除评论
 export function deleteCommentByPid(pid) {
-  return request.post(`/comment/delete`,{
+  return request.delete(`/delete/comment`,{
     params:{
       pid
     }

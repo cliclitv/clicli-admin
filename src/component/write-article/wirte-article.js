@@ -157,18 +157,18 @@ class WriteArticle extends React.Component {
               <option value="public">发布</option> : null}
         </select></span>
           <div className="video-list">
-            {this.state.videos.map(item => {
+            {this.state.videos ? this.state.videos.map(item => {
               return (
                 <Link to={`/editor-video/` + item.id} key={item.id}>
-                  <li >
+                  <li>
                     <div className="title">{item.oid}</div>
                   </li>
                 </Link>
               )
-            })}
+            }) : null}
             <Link to={`/add-video`}>
               <li className="add">
-                <div >＋</div>
+                <div>＋</div>
               </li>
             </Link>
           </div>
