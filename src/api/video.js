@@ -46,7 +46,7 @@ export function updateVideo({id, oid, title, content, pid, uid}) {
 
 // 删除评论
 export function deleteVideo(id) {
-  return request.delete(`/video/delete/${id}`)
+  return request.post(`/video/delete/${id}`)
 }
 
 // 根据地址获取真实链接

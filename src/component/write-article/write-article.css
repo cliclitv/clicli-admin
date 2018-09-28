@@ -34,7 +34,7 @@
     box-shadow: 1px 1px 1px rgba(70, 123, 150, 0.2);
     border: 0;
     color: #666;
-    margin: 20px 20px 0 0;
+    margin: 20px 20px 20px 0;
     position: relative;
     top: 3px;
 }
@@ -51,7 +51,7 @@
     background: #fff;
     list-style: none;
     display: inline-block;
-    margin: 25px 15px 25px 0;
+    margin-right: 15px;
     padding: 10px;
     box-sizing: border-box;
     border-radius: 50%;

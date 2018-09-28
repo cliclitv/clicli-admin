@@ -55,11 +55,6 @@ export function update(post) {
       sort: post.sort,
       type: post.type,
       uid: post.uid
-    },
-    {
-      headers: {
-        'Token': Cookies.get('token')
-      }
     })
 }
 
