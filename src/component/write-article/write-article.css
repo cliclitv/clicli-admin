@@ -63,3 +63,8 @@
     background: #467B96;
     color: #fff;
 }
+
+.write-article .video-list .add div{
+    position: relative;
+    top: -2px;
+}

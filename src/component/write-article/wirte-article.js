@@ -138,15 +138,15 @@ class WriteArticle extends React.Component {
           <option value="lianzai">连载</option>
           <option value="wanjie">完结</option>
           <option value="yuanchuang">原创</option>
-          <option value="wen">文字</option>
+          <option value="wenzhang">文章</option>
         </select></span>
           <span><select onChange={e => this.handleChange('type', e.target.value)}
                         value={this.state.type}>
-          <option value="">分级</option>
-          <option value="bg">正常向</option>
-          <option value="bl">耽美向</option>
-          <option value="gl">百合向</option>
-          <option value="18x">绅士向</option>
+          <option value="">选项</option>
+          <option value="moren">默认</option>
+          <option value="tuijian">推荐</option>
+          <option value="danmei">耽美</option>
+          <option value="shenshi">绅士</option>
         </select></span>
           <span><select onChange={e => this.handleChange('status', e.target.value)}
                         value={this.state.status}>
@@ -173,7 +173,7 @@ class WriteArticle extends React.Component {
             </Link>
           </div>
           <div>
-            <button onClick={this.handleClick.bind(this)}>发布番剧</button>
+            <button onClick={this.handleClick.bind(this)}>{this.state.text}番剧</button>
           </div>
         </div>
       </div>
