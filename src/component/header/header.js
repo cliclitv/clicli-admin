@@ -55,6 +55,18 @@ class Header extends React.Component {
               </ul>
             </li>
             : null}
+          {this.props.state.role === 'admin' || this.props.state.role === 'editor' ?
+            <li>网盘
+              <ul>
+                <Link to='/pan/cookie'>
+                  <li>设置Cookie</li>
+                </Link>
+                <Link to='/pan/bit'>
+                  <li>比特云</li>
+                </Link>
+              </ul>
+            </li>
+            : null}
           {this.props.state.role === 'admin' ? <Link to='/options'>
             <li>设置</li>
           </Link> : null}

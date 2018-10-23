@@ -2,7 +2,6 @@ import React from 'react'
 
 import Header from 'component/header/header'
 import Footer from 'component/footer/footer'
-import AuthRoute from 'component/authroute/authroute'
 import Loading from 'base/loading/loading'
 import EditorUser from 'component/editor-user/editor-user'
 import WriteArticle from 'component/write-article/wirte-article'
@@ -13,6 +12,16 @@ import {Route, Switch} from 'react-router-dom'
 
 const ArticleList = Loadable({
   loader: () => import('component/article-list/article-list'),
+  loading: Loading,
+})
+
+const Cookie = Loadable({
+  loader: () => import('component/cookie/cookie'),
+  loading: Loading,
+})
+
+const PanList = Loadable({
+  loader: () => import('component/pan-list/pan-list'),
   loading: Loading,
 })
 
@@ -49,7 +58,6 @@ class App extends React.Component {
         <Route path='/register' component={Register}/>
         <Route path='/' render={props => (
           <div>
-            {/*<AuthRoute/>*/}
             <Header/>
             <Switch>
               <Route path='/editor-article/:editor' component={WriteArticle} key='editor'/>
@@ -61,10 +69,13 @@ class App extends React.Component {
               <Route path='/posts/:type' component={ArticleList} key={location.pathname}/>
               <Route path='/users/:role' component={UserList} key={location.pathname}/>
               <Route path='/options' component={Option}/>
+              <Route path='/pan/cookie' component={Cookie}/>
+              <Route path='/pan/bit' component={PanList} key={location.pathname}/>
+              <Route path='/pan/bit-list/:fid' component={PanList} key={location.pathname}/>
               <Route path='/' component={UserInfo}/>
             </Switch>
             <Footer/>
-            {/*<Loading/>*/}
+            <Loading/>
           </div>
         )}/>
       </Switch>

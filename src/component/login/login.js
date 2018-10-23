@@ -10,7 +10,7 @@ import TopTip from 'base/top-tip/top-tip'
 import './login.css'
 
 @map({
-  state: ['isAuth','msg','bg'],
+  state: ['isAuth', 'msg', 'bg'],
   actions: ['onLogin']
 })
 @handleForm

@@ -41,13 +41,10 @@ class EditorUser extends React.Component {
   }
 
   handleClick() {
-
     update(this.state).then(res => {
-      if (res.data.code === 201) {
-        this.setState({
-          msg: res.data.msg
-        })
-      }
+      this.setState({
+        msg: res.data.msg
+      })
       setTimeout(() => {
         this.setState({
           msg: ''

@@ -37,11 +37,12 @@ export function userList(role) {
   return request.get('/users', {
     params: {
       role,
-      page:1,
+      page: 1,
       pageSize: 100
     }
   })
 }
+
 // 根据ID查找用户信息
 
 export function getUserById(id) {
@@ -65,4 +66,20 @@ export function getUserByName(name) {
 // 用户退出
 export function logout() {
   return request.post('/user/logout')
+}
+
+// 获取用户cookie
+export function getCookie(uid) {
+  return request.get(`/cookie/${uid}`)
+}
+
+// 替换用户cookie
+export function replaceCookie(data) {
+  return request.post('/cookie/replace', {
+    uid: parseInt(data.uid),
+    hcy: data.hcy,
+    tyyp: data.tyyp,
+    bit: data.bit
+  })
+
 }

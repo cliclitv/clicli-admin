@@ -3,7 +3,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import {setStorage} from "common/js/localstorage"
 import {adminAuth} from "hoc/auth/auth"
-import {getUserByName} from 'api/user'
+import {getUserByName, getCookie} from 'api/user'
 
 
 import './user-info.css'
@@ -24,6 +24,11 @@ class UserInfo extends React.Component {
     if (name) {
       name = Base64.decode(name)
       getUserByName(name).then(res => {
+        getCookie(res.data.user.id).then(res => {
+          Cookies.set('bit', Base64.encode(res.data.result.bit),{ domain: 'clicli.us' })
+          Cookies.set('hcy', Base64.encode(res.data.result.hcy),{ domain: 'clicli.us' })
+          Cookies.set('tyyp', Base64.encode(res.data.result.tyyp),{ domain: 'clicli.us' })
+        })
         setStorage('user-info', res.data.user)
         this.setState({
           user: res.data.user

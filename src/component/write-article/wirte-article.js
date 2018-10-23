@@ -166,11 +166,12 @@ class WriteArticle extends React.Component {
                 </Link>
               )
             }) : null}
-            <Link to={`/add-video/${this.state.id}`}>
+            {this.props.location.pathname !== '/write-article' ? null : <Link to={`/add-video/${this.state.id}`}>
               <li className="add">
                 <div>＋</div>
               </li>
-            </Link>
+            </Link>}
+
           </div>
           <div>
             <button onClick={this.handleClick.bind(this)}>{this.state.text}番剧</button>

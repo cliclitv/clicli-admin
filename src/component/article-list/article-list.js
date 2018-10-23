@@ -45,10 +45,10 @@ class ArticleList extends React.Component {
   render() {
     return (
       <div className="article-list">
+        <ReachBox text='请输入文章id' prefix='/editor-article/'/>
         <Link to="/posts/wait" style={{padding:'20px'}}>待审核</Link>
         <Link to="/posts/public">已发布</Link>
         <ListView list={this.state.posts} refresh={this.refresh.bind(this)}/>
-        <ReachBox text='请输入文章id' prefix='/editor-article/'/>
       </div>
     )
   }
