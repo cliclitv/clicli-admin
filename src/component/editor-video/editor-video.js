@@ -2,7 +2,7 @@ import React from 'react'
 
 import TopTip from 'base/top-tip/top-tip'
 
-import {getVideo, updateVideo, deleteVideoById} from "api/video"
+import {getVideo, updateVideo, deleteVideoById, addVideo} from "api/video"
 import {adminAuth} from "hoc/auth/auth"
 import {withRouter} from 'react-router-dom'
 import {getStorage} from "common/js/localstorage"
@@ -20,7 +20,7 @@ class EditorVideo extends React.Component {
       oid: '',
       title: '',
       content: '',
-      pid: '',
+      pid: this.props.match.params.pid,
       uid: getStorage('user-info').id,
       text: '修改'
     }
@@ -28,10 +28,11 @@ class EditorVideo extends React.Component {
 
   componentDidMount() {
 
-    if (this.props.location.pathname === '/add-video') {
+    if (this.props.location.pathname.indexOf('add-video') > -1) {
       this.setState({text: '添加'})
     } else {
       this.loadVideo()
+      console.log('111')
       this.setState({text: '修改'})
     }
   }
@@ -67,20 +68,35 @@ class EditorVideo extends React.Component {
   }
 
   handleClick() {
-
-    updateVideo(this.state).then(res => {
-      if (res.data.code === 201) {
-        this.setState({
-          msg: '更新成功啦'
-        })
-      }
-      setTimeout(() => {
-        this.props.history.goBack()
-        this.setState({
-          msg: ''
-        })
-      }, 2000)
-    })
+    if (this.props.location.pathname.indexOf('editor-video') > -1) {
+      updateVideo(this.state).then(res => {
+        if (res.data.code === 201) {
+          this.setState({
+            msg: '更新成功啦'
+          })
+        }
+        setTimeout(() => {
+          this.props.history.goBack()
+          this.setState({
+            msg: ''
+          })
+        }, 2000)
+      })
+    } else {
+      addVideo(this.state).then(res => {
+        if (res.data.code === 201) {
+          this.setState({
+            msg: '添加成功啦'
+          })
+        }
+        setTimeout(() => {
+          this.props.history.goBack()
+          this.setState({
+            msg: ''
+          })
+        }, 2000)
+      })
+    }
   }
 
   render() {
@@ -97,7 +113,7 @@ class EditorVideo extends React.Component {
                           onChange={e => this.handleChange('title', e.target.value)}/>
             </li>
             <li>地址：<input type="text" value={this.state.content}
-                          placeholder="支持mp4、m3u8、哔哩哔哩、腾讯视频、dilidili、halihali、silisili"
+                          placeholder="支持mp4、m3u8、哔哩哔哩、腾讯视频、qinmei"
                           onChange={e => this.handleChange('content', e.target.value)}/>
             </li>
             <li className="center">

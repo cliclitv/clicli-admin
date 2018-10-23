@@ -93,7 +93,7 @@ class WriteArticle extends React.Component {
         if (res.data.code === 201) {
           this.setState({
             msg: '更新成功啦！',
-            text: '编辑',
+            text: '修改',
             bg: '#b4d896'
           })
         }
@@ -166,7 +166,7 @@ class WriteArticle extends React.Component {
                 </Link>
               )
             }) : null}
-            <Link to={`/add-video`}>
+            <Link to={`/add-video/${this.state.id}`}>
               <li className="add">
                 <div>＋</div>
               </li>
