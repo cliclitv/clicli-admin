@@ -65,10 +65,10 @@ class Header extends React.Component {
                 <Link to='/pan/cookie'>
                   <li>设置Cookie</li>
                 </Link>
-                <Link to='/pan/bit-list'>
+                <Link to='/pan/bit'>
                   <li>比特球</li>
                 </Link>
-                <Link to='/pan/hcy-list'>
+                <Link to='/pan/hcy'>
                   <li>和彩云</li>
                 </Link>
               </ul>

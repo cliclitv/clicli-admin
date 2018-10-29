@@ -20,6 +20,10 @@
     align-items: center;
 }
 
+.pan-list li:hover {
+    background: #ebf4f9;
+}
+
 .pan-list ul li:last-child {
     border: 0
 }

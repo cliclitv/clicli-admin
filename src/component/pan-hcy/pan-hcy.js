@@ -8,27 +8,28 @@ import {Base64} from 'js-base64'
 
 @withRouter
 
-class PanBit extends React.Component {
+class PanHcy extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       fid: this.props.match.params.fid,
-      list: []
+      list: [],
+      contents:[]
     }
   }
 
   componentDidMount() {
     getHcyList(this.state.fid).then(res => {
-      console.log(res.data)
       this.setState({
-        list: res.data.data
+        list: res.data.dci.cataloginfos,
+        content: res.data.dci.contents
       })
     })
   }
 
-  copy(id,name) {
+  copy(id, name) {
     let uid = getStorage('user-info').id
-    let url = 'https://www.clicli.us/bit/down/' + Base64.encode(uid + ',' + id + ',' + name)
+    let url = 'https://www.clicli.us/hcy/down/' + Base64.encode(uid + ',' + id + ',' + name)
     let input = document.createElement('input')
     input.value = url
     document.body.appendChild(input)
@@ -50,19 +51,27 @@ class PanBit extends React.Component {
 
           {this.state.list ? this.state.list.map((item) => {
             return (
-              <li key={item.resourceId}>
-                <div className="title">{item.resourceType === 1 ?
-                  <Link to={`/pan/bit-list/` + item.resourceId}>{item.name}</Link> : <span>{item.name}</span>}</div>
-                {item.resourceType !== 1 ? <div className="action">
-                  <button onClick={this.copy.bind(this, item.resourceId)}>点击复制链接</button>
-                </div> : null}
+              <li key={item.catalogID}>
+                <div className="title">{
+                  <Link to={`/pan/hcy-list/` + item.catalogID}>{item.catalogName}</Link>}</div>
               </li>
             )
-          }) : <h1>cookie失效，无法返回列表</h1>}
+          }):null}
+          {this.state.content ? this.state.content.map((item) => {
+            return (
+              <li key={item.contentID}>
+                <div className="title">{
+                  <span>{item.contentName}</span>}</div>
+                <div className="action">
+                  <button onClick={this.copy.bind(this, item.contentID,item.contentName)}>点击复制链接</button>
+                </div>
+              </li>
+            )
+          }):null}
         </ul>
       </div>
     )
   }
 }
 
-export default PanBit
+export default PanHcy

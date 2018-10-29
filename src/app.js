@@ -75,8 +75,10 @@ class App extends React.Component {
               <Route path='/users/:role' component={UserList} key={location.pathname}/>
               <Route path='/options' component={Option}/>
               <Route path='/pan/cookie' component={Cookie}/>
+              <Route path='/pan/bit' component={PanBit} key={location.pathname}/>
               <Route path='/pan/bit-list/:fid' component={PanBit} key={location.pathname}/>
-              <Route path='/pan/hcy-list' component={PanHcy} key={location.pathname}/>
+              <Route path='/pan/hcy' component={PanHcy} key={location.pathname}/>
+              <Route path='/pan/hcy-list/:fid' component={PanHcy} key={location.pathname}/>
               <Route path='/' component={UserInfo}/>
             </Switch>
             <Footer/>

@@ -8,7 +8,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'js/[name].js',
-    publicPath: '//alicdn.imh3.cn/react/'
+    publicPath: process.env.NODE_ENV === 'development' ? '/' : '//alicdn.imh3.cn/react/'
   },
   resolve: {
     alias: {
@@ -78,8 +78,8 @@ module.exports = {
       '/api/login': {
         target: 'http://api.chinko.cc/'
       },
-      '/webdisk2': {
-        target: 'http://caiyun.feixin.10086.cn'
+      '/hcy/list': {
+        target: 'http://www.clicli.us/'
       }
     }
   }
