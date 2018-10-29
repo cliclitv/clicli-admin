@@ -8,7 +8,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'js/[name].js',
-    publicPath: '/'
+    publicPath: '//alicdn.imh3.cn/react/'
   },
   resolve: {
     alias: {
@@ -77,6 +77,9 @@ module.exports = {
     proxy: {
       '/api/login': {
         target: 'http://api.chinko.cc/'
+      },
+      '/webdisk2': {
+        target: 'http://caiyun.feixin.10086.cn'
       }
     }
   }

@@ -14,7 +14,8 @@ class Cookie extends React.Component {
       uid: getStorage('user-info').id,
       hcy: '',
       tyyp: '',
-      bit: ''
+      bit: '',
+      msg:''
     }
   }
 
@@ -41,7 +42,7 @@ class Cookie extends React.Component {
     replaceCookie(this.state).then(res => {
       if (res.data.code === 201) {
         this.setState({
-          msg: res.data.msg
+          msg: '更新成功啦！'
         })
       }
       setTimeout(() => {
@@ -60,11 +61,9 @@ class Cookie extends React.Component {
         <div className="editor-user">
           <h1>设置Cookie</h1>
           <ul>
-            <li>和彩云：<input type="text" value={this.state.hcy}
-                           onChange={e => this.handleChange('hcy', e.target.value)}/></li>
-            <li>天翼云：<input type="text" value={this.state.tyyp} onChange={e => this.handleChange('tyyp', e.target.value)}/>
+            <li>比特球：<input type="text" value={this.state.bit} onChange={e => this.handleChange('bit', e.target.value)}/>
             </li>
-            <li>比特云：<input type="text" value={this.state.bit} onChange={e => this.handleChange('bit', e.target.value)}/>
+            <li>和彩云：<input type="text" value={this.state.hcy} onChange={e => this.handleChange('hcy', e.target.value)}/>
             </li>
             <li className="center">
               <button onClick={this.handleClick.bind(this)}>保存</button>

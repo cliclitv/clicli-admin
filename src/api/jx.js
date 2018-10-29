@@ -10,6 +10,11 @@ export function getBitList(fid) {
 
 }
 
+export function getHcyList(fid) {
+  return axios.get('/hcy/list')
+
+}
+
 export function getRealUrl(fid) {
   return axios.get('/bit/list',{
     params:{

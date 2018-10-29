@@ -25,6 +25,10 @@ class Header extends React.Component {
       path:'/',
       domain:'clicli.us'
     })
+    Cookies.remove('uid',{
+      path:'/',
+      domain:'clicli.us'
+    })
     removeStorage('user-info')
     this.props.history.push('/login')
   }
@@ -61,8 +65,11 @@ class Header extends React.Component {
                 <Link to='/pan/cookie'>
                   <li>设置Cookie</li>
                 </Link>
-                <Link to='/pan/bit'>
-                  <li>比特云</li>
+                <Link to='/pan/bit-list'>
+                  <li>比特球</li>
+                </Link>
+                <Link to='/pan/hcy-list'>
+                  <li>和彩云</li>
                 </Link>
               </ul>
             </li>

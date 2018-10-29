@@ -1,13 +1,14 @@
 import React from 'react'
-import './pan-list.css'
+import './pan-bit.css'
 import {Link} from 'react-router-dom'
 import {withRouter} from 'react-router-dom'
 import {getBitList} from 'api/jx'
 import {getStorage, setStorage} from "common/js/localstorage"
+import {Base64} from 'js-base64'
 
 @withRouter
 
-class PanList extends React.Component {
+class PanBit extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -25,7 +26,8 @@ class PanList extends React.Component {
   }
 
   copy(id) {
-    let url = 'https://www.clicli.us/bit/down/' + id
+    let uid = getStorage('user-info').id
+    let url = 'https://www.clicli.us/bit/down/' + Base64.encode(id + ',' + uid)
     let input = document.createElement('input')
     input.value = url
     document.body.appendChild(input)
@@ -48,7 +50,8 @@ class PanList extends React.Component {
           {this.state.list ? this.state.list.map((item) => {
             return (
               <li key={item.resourceId}>
-                <div className="title">{item.resourceType === 1 ?<Link to={`/pan/bit-list/` + item.resourceId}>{item.name}</Link>:<span>{item.name}</span>}</div>
+                <div className="title">{item.resourceType === 1 ?
+                  <Link to={`/pan/bit-list/` + item.resourceId}>{item.name}</Link> : <span>{item.name}</span>}</div>
                 {item.resourceType !== 1 ? <div className="action">
                   <button onClick={this.copy.bind(this, item.resourceId)}>点击复制链接</button>
                 </div> : null}
@@ -61,4 +64,4 @@ class PanList extends React.Component {
   }
 }
 
-export default PanList
+export default PanBit
