@@ -45,7 +45,7 @@ class PanBit extends React.Component {
           <div className="title" style={{color: '#444'}}>标题</div>
           <div className="action">链接</div>
         </li>
-        <ul style={{background: '#fff', padding: '0 10px'}}>
+        <ul style={{background: '#fff'}}>
 
           {this.state.list ? this.state.list.map((item) => {
             return (

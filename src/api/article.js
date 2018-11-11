@@ -1,8 +1,7 @@
 import axios from 'axios'
-import Cookies from 'js-cookie'
 
 const request = axios.create({
-  baseURL: 'https://api.chinko.cc'
+  baseURL: 'https://api.clicli.top'
 })
 
 // 根据状态获取文章

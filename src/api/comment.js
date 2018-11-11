@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const request = axios.create({
-  baseURL: 'https://api.chinko.cc'
+  baseURL: 'https://api.clicli.top'
 })
 
 // 根据pid查找评论
@@ -20,7 +20,7 @@ export function getCommentByUid(uid, page, pageSize) {
 
 // 添加评论
 export function addComment(comment) {
-  return request.post('/comment/add', comment)
+  return request.post('/danmu/add', comment)
 }
 
 // 根据id删除评论
