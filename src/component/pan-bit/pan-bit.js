@@ -27,7 +27,7 @@ class PanBit extends React.Component {
 
   copy(id) {
     let uid = getStorage('user-info').id
-    let url = 'https://www.clicli.us/bit/down/' + Base64.encode(id + ',' + uid)
+    let url = 'https://www.clicli.top/bit/down/' + Base64.encode(id + ',' + uid)
     let input = document.createElement('input')
     input.value = url
     document.body.appendChild(input)

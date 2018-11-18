@@ -29,7 +29,7 @@ class PanHcy extends React.Component {
 
   copy(id, name) {
     let uid = getStorage('user-info').id
-    let url = 'https://www.clicli.us/hcy/down/' + Base64.encode(uid + ',' + id + ',' + name)
+    let url = 'https://www.clicli.top/hcy/down/' + Base64.encode(uid + ',' + id + ',' + name)
     let input = document.createElement('input')
     input.value = url
     document.body.appendChild(input)

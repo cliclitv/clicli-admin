@@ -98,6 +98,7 @@ class WriteArticle extends React.Component {
           })
         }
         setTimeout(() => {
+          this.props.history.push(`/article/${this.state.uid}`)
           this.setState({
             msg: ''
           })
