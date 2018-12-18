@@ -71,6 +71,9 @@ class Header extends React.Component {
                 <Link to='/pan/hcy'>
                   <li>和彩云</li>
                 </Link>
+                <Link to='/pan/kandian'>
+                  <li>QQ看点</li>
+                </Link>
               </ul>
             </li>
             : null}

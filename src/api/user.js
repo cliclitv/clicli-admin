@@ -23,7 +23,7 @@ export function register(user) {
 
 // 更新用户信息
 export function update(user) {
-  return request.post(`/user/update/${user.id}`, {
+  return axios.post(`/user/update/${user.id}`, {
     name: user.name,
     pwd: user.pwd,
     qq: parseInt(user.qq),
@@ -78,7 +78,7 @@ export function replaceCookie(data) {
   return request.post('/cookie/replace', {
     uid: parseInt(data.uid),
     hcy: data.hcy,
-    tyyp: data.tyyp,
+    kandian: data.kandian,
     bit: data.bit
   })
 

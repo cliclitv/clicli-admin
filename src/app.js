@@ -25,6 +25,11 @@ const PanBit = Loadable({
   loading: Loading,
 })
 
+const PanKandian = Loadable({
+  loader: () => import('component/pan-kandian/pan-kandian'),
+  loading: Loading,
+})
+
 const PanHcy = Loadable({
   loader: () => import('component/pan-hcy/pan-hcy'),
   loading: Loading,
@@ -79,6 +84,7 @@ class App extends React.Component {
               <Route path='/pan/bit-list/:fid' component={PanBit} key={location.pathname}/>
               <Route path='/pan/hcy' component={PanHcy} key={location.pathname}/>
               <Route path='/pan/hcy-list/:fid' component={PanHcy} key={location.pathname}/>
+              <Route path='/pan/kandian' component={PanKandian} key={location.pathname}/>
               <Route path='/' component={UserInfo}/>
             </Switch>
             <Footer/>

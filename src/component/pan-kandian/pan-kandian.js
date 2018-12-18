@@ -1,33 +1,32 @@
 import React from 'react'
-import './pan-bit.css'
+import '../pan-bit/pan-bit.css'
 import {Link} from 'react-router-dom'
 import {withRouter} from 'react-router-dom'
-import {getBitList} from 'api/jx'
+import {getKandianList} from 'api/jx'
 import {getStorage, setStorage} from "common/js/localstorage"
 import {Base64} from 'js-base64'
 
 @withRouter
 
-class PanBit extends React.Component {
+class PanKandian extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      fid: this.props.match.params.fid,
       list: []
     }
   }
 
   componentDidMount() {
-    getBitList(this.state.fid).then(res => {
+    getKandianList(this.state.fid).then(res => {
       this.setState({
-        list: res.data.data.data
+        list: res.data.data.item
       })
     })
   }
 
-  copy(id, fuid) {
+  copy(id) {
     let uid = getStorage('user-info').id
-    let url = 'https://www.clicli.top/bit/down/' + Base64.encode(id + ',' + uid + ',' + fuid)
+    let url = 'https://www.clicli.top/kandian/down/' + Base64.encode(id + ',' + uid)
     let input = document.createElement('input')
     input.value = url
     document.body.appendChild(input)
@@ -49,12 +48,11 @@ class PanBit extends React.Component {
 
           {this.state.list ? this.state.list.map((item) => {
             return (
-              <li key={item.resourceId}>
-                <div className="title">{item.resourceType === 1 ?
-                  <Link to={`/pan/bit-list/` + item.resourceId}>{item.name}</Link> : <span>{item.name}</span>}</div>
-                {item.resourceType !== 1 ? <div className="action">
-                  <button onClick={this.copy.bind(this, item.resourceId, item.resourceUid)}>点击复制链接</button>
-                </div> : null}
+              <li key={item.material_id}>
+                <div className="title"><span>{item.items[0].title}</span></div>
+                 <div className="action">
+                  <button onClick={this.copy.bind(this, item.items[0].c_vid)}>点击复制链接</button>
+                </div>
               </li>
             )
           }) : <h1>cookie失效，无法返回列表</h1>}
@@ -64,4 +62,4 @@ class PanBit extends React.Component {
   }
 }
 
-export default PanBit
+export default PanKandian

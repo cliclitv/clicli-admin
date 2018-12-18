@@ -13,7 +13,7 @@ class Cookie extends React.Component {
     this.state = {
       uid: getStorage('user-info').id,
       hcy: '',
-      tyyp: '',
+      kandian: '',
       bit: '',
       msg:''
     }
@@ -64,6 +64,8 @@ class Cookie extends React.Component {
             <li>比特球：<input type="text" value={this.state.bit} onChange={e => this.handleChange('bit', e.target.value)}/>
             </li>
             <li>和彩云：<input type="text" value={this.state.hcy} onChange={e => this.handleChange('hcy', e.target.value)}/>
+            </li>
+            <li>QQ看点：<input type="text" value={this.state.kandian} onChange={e => this.handleChange('kandian', e.target.value)}/>
             </li>
             <li className="center">
               <button onClick={this.handleClick.bind(this)}>保存</button>
