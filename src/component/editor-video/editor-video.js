@@ -23,8 +23,8 @@ class EditorVideo extends React.Component {
       pid: this.props.match.params.pid,
       uid: getStorage('user-info').id,
       text: '修改',
-      zhilian: false,
-      per: 0
+      zhilian: true,
+      per: 0,
     }
   }
 
@@ -83,11 +83,7 @@ class EditorVideo extends React.Component {
         }, 2000)
       })
     } else {
-      if (this.state.zhilian) {
-        this.addVideos()
-      } else {
-        this.onUpload()
-      }
+      this.addVideos()
     }
   }
 
@@ -127,16 +123,21 @@ class EditorVideo extends React.Component {
         alert('上传出错( ' + err.code + ' )：' + err.message + '')
       },
       complete(res) {
-        console.log('上传完成，视频 vcode：' + res.vid)
+        console.log('上传完成，视频 vid：' + res.vid)
         self.setState({
           content: `${res.vid}@dogecloud`,
           per: 0
         })
-        self.addVideos()
       }
     })
 
     uploader.upload()
+  }
+
+  zhilian() {
+    this.setState({
+      zhilian: !this.state.zhilian
+    })
   }
 
   render() {
@@ -153,10 +154,15 @@ class EditorVideo extends React.Component {
             <li>备注：<input type="text" value={this.state.title} placeholder="可不填"
                           onChange={e => this.handleChange('title', e.target.value)}/>
             </li>
-            <li>地址：{this.state.zhilian ? <input type="text" value={this.state.content}
-                                                placeholder="支持mp4、m3u8等直链"
-                                                onChange={e => this.handleChange('content', e.target.value)}/>
-              : <input type="file" ref='uploader' accept="video/*"/>} </li>
+            <li><span onClick={this.zhilian.bind(this)}>{this.state.zhilian ? '直链' : '上传'}</span>：{this.state.zhilian ?
+              <input type="text" value={this.state.content}
+                     placeholder="支持mp4、m3u8等直链"
+                     onChange={e => this.handleChange('content', e.target.value)}/>
+              : <div>
+                <div id="uploader"><span>上传</span><input type="file" ref='uploader' accept="video/*" onChange={this.onUpload.bind(this)}/></div>
+                <div style={{height: '55px'}}></div>
+              </div>
+            } </li>
             <li className="center">
               <button onClick={this.handleClick.bind(this)}>提交</button>
               <button onClick={this.deleteVideo.bind(this)}>删除</button>

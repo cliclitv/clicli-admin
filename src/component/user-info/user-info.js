@@ -3,8 +3,8 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import {setStorage} from "common/js/localstorage"
 import {adminAuth} from "hoc/auth/auth"
-import {getUserByName, getCookie} from 'api/user'
-
+import {getUserByName} from 'api/user'
+import {getAvatar} from "common/js/util"
 
 import './user-info.css'
 import Cookies from "js-cookie"
@@ -34,7 +34,7 @@ class UserInfo extends React.Component {
   }
 
   render() {
-    const qq = `http://q2.qlogo.cn/headimg_dl?dst_uin=` + this.state.user.qq + `&spec=100`
+    const qq = getAvatar(this.state.user.qq)
     const router = `/article/` + this.state.user.id
     const info = `/editor-user/` + this.state.user.name
     return (
