@@ -25,11 +25,6 @@ const PanBit = Loadable({
   loading: Loading,
 })
 
-const PanKandian = Loadable({
-  loader: () => import('component/pan-kandian/pan-kandian'),
-  loading: Loading,
-})
-
 const PanHcy = Loadable({
   loader: () => import('component/pan-hcy/pan-hcy'),
   loading: Loading,
@@ -37,10 +32,6 @@ const PanHcy = Loadable({
 
 const UserList = Loadable({
   loader: () => import('component/user-list/user-list'),
-  loading: Loading,
-})
-const Option = Loadable({
-  loader: () => import('component/option/option'),
   loading: Loading,
 })
 
@@ -78,13 +69,11 @@ class App extends React.Component {
               <Route path='/article/:author' component={ArticleList} key='author'/>
               <Route path='/posts/:type' component={ArticleList} key={location.pathname}/>
               <Route path='/users/:role' component={UserList} key={location.pathname}/>
-              <Route path='/options' component={Option}/>
               <Route path='/pan/cookie' component={Cookie}/>
               <Route path='/pan/bit' component={PanBit} key={location.pathname}/>
               <Route path='/pan/bit-list/:fid' component={PanBit} key={location.pathname}/>
               <Route path='/pan/hcy' component={PanHcy} key={location.pathname}/>
               <Route path='/pan/hcy-list/:fid' component={PanHcy} key={location.pathname}/>
-              <Route path='/pan/kandian' component={PanKandian} key={location.pathname}/>
               <Route path='/' component={UserInfo}/>
             </Switch>
             <Footer/>

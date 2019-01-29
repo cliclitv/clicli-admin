@@ -71,15 +71,9 @@ class Header extends React.Component {
                 <Link to='/pan/hcy'>
                   <li>和彩云</li>
                 </Link>
-                <Link to='/pan/kandian'>
-                  <li>QQ看点</li>
-                </Link>
               </ul>
             </li>
             : null}
-          {this.props.state.role === 'admin' ? <Link to='/options'>
-            <li>设置</li>
-          </Link> : null}
           <li onClick={this.onLogout.bind(this)} className="logout">
             退出
           </li>

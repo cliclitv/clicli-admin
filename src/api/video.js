@@ -62,13 +62,14 @@ export function deleteVideoByPid(pid) {
   })
 }
 
-// 根据地址获取真实链接
-export function getRealUrl(url) {
 
-  return axios.get('https://www.clicli.us/jx', {
+//上传
+
+export function getUploadToken(fname,rname) {
+  return axios.get('https://www.clicli.top/upload/auth',{
     params: {
-      url
+      fname,
+      rname
     }
   })
-
 }

@@ -50,3 +50,18 @@
     margin: 10px 0;
     display: block;
 }
+
+.per{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 60px;
+    width: 60px;
+    color: #fff;
+    font-size: 20px;
+    background: #608ea8;
+    text-align: center;
+    border-radius: 30px;
+    line-height: 60px;
+}

@@ -6,7 +6,10 @@ const request = axios.create({
 
 // 用户登录
 export function login(user) {
-  return axios.post('/api/login', user)
+  return axios.post('/api/login', {
+    name: user.name,
+    pwd: user.pwd
+  })
 }
 
 
@@ -15,7 +18,7 @@ export function register(user) {
   return request.post('/register', {
     name: user.name,
     pwd: user.pwd,
-    qq: parseInt(user.qq),
+    qq: user.qq,
     role: 'user',
     desc: '人懒，竟然没有签名~'
   })
@@ -26,7 +29,7 @@ export function update(user) {
   return axios.post(`/user/update/${user.id}`, {
     name: user.name,
     pwd: user.pwd,
-    qq: parseInt(user.qq),
+    qq: user.qq,
     role: user.role,
     desc: user.desc
   })
