@@ -11,7 +11,7 @@ export function getAvatar(avatar) {
 
 export function replaceContent(content) {
   if (content.indexOf('ftn.qq.com') > -1) content = content.replace('ftn_handler/', 'rkey=')
-  if (content.indexOf('ksyun.php') > -1) content = content.replace('/static/danmu/ksyun.php?', '') + '@c_360'
+  if (content.indexOf('ksyun.php') > -1) content = content.replace('/static/danmu/ksyun.php?', '') + '@ksyun'
   if (content.indexOf('zhilian2.php') > -1) content = content.replace('http://119.23.209.33/static/danmu/zhilian2.php?http://47.94.243.190:8081/play/', '') + '@c_360'
   if (content.indexOf('san.php') > 1) content = content.replace('/static/danmu/san.php?http://193.112.131.234:8081/zzzfun/v360?v=', '') + '@s_360'
   return content
