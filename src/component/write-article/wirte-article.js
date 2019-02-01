@@ -137,8 +137,8 @@ class WriteArticle extends React.Component {
           <option value="">分类</option>
           <option value="xinfan">新番</option>
           <option value="lianzai">连载</option>
+          <option value="lianzai">剧场版</option>
           <option value="wanjie">完结</option>
-          <option value="yuanchuang">原创</option>
           <option value="wenzhang">文章</option>
         </select></span>
           <span><select onChange={e => this.handleChange('type', e.target.value)}
@@ -154,6 +154,7 @@ class WriteArticle extends React.Component {
             <option value="">状态</option>
           <option value="wait">待审核</option>
           <option value="draft">草稿</option>
+          <option value="ugc">原创</option>
             {this.props.state.role === 'admin' || this.props.state.role === 'editor' ?
               <option value="public">发布</option> : null}
         </select></span>
