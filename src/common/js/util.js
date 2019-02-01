@@ -8,3 +8,11 @@ export function getAvatar(avatar) {
     return `https://cdn.v2ex.com/gravatar/${hash}`
   }
 }
+
+export function replaceContent(content) {
+  if (content.indexOf('ftn.qq.com')) content = content.replace('ftn_handler/', 'rkey=')
+  if (content.indexOf('ksyun.php')) content = content.replace('/static/danmu/ksyun.php?', '').replace('==', '@ksyun')
+  if (content.indexOf('zhilian2.php')) content = content.replace('http://119.23.209.33/static/danmu/zhilian2.php?http://47.94.243.190:8081/play/', '') + '@c_360'
+  if (content.indexOf('san.php')) content = content.replace('/static/danmu/san.php?http://193.112.131.234:8081/zzzfun/v360?v=', '') + '@s_360'
+  return content
+}

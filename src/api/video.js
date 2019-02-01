@@ -1,4 +1,5 @@
 import axios from 'axios'
+import {replaceContent} from 'common/js/util'
 
 const request = axios.create({
   baseURL: 'https://api.clicli.top'
@@ -24,7 +25,7 @@ export function getVideo(vid) {
 
 // 添加视频
 export function addVideo({oid, title, content, pid, uid}) {
-  if (content.indexOf('ftn.qq.com')) content = content.replace('http://', 'https://').replace('ftn_handler/', 'rkey=')
+  content = replaceContent(content)
   return request.post('/video/add', {
     oid: parseInt(oid),
     title,
@@ -36,8 +37,7 @@ export function addVideo({oid, title, content, pid, uid}) {
 
 // 修改视频
 export function updateVideo({id, oid, title, content, pid, uid}) {
-  // http://tj-ctfs.ftn.qq.com/ftn_handler/4c935fcf6ab1ce4a20d59270dc546602935119fb7edd2e7b032124955a1048ee76228edd082cf5a917b393e7347052f841465e0c5299e9683a2bca4c2e521963/wz04.mp4
-  if (content.indexOf('ftn.qq.com')) content = content.replace('http://', 'https://').replace('ftn_handler/', 'rkey=')
+  content = replaceContent(content)
   return request.post(`/video/update/${id}`, {
     oid: parseInt(oid),
     title,
