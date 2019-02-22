@@ -24,7 +24,7 @@ class EditorVideo extends React.Component {
       uid: getStorage('user-info').id,
       text: '修改',
       zhilian: true,
-      per: 0,
+      per: 0
     }
   }
 
@@ -106,11 +106,11 @@ class EditorVideo extends React.Component {
   async onUpload() {
     let self = this
     let file = this.refs.uploader.files[0]
-    console.log(this.state.title)
-    const token = await getUploadToken(file.name, this.state.title).then(res => {
+    let rname = this.state.pid + ' | ' + this.state.oid
+    const token = await getUploadToken(file.name, rname).then(res => {
       return res.data.uploadToken
     })
-
+    console.log(token)
     const uploader = new DogeUploader({
       file,
       token,
@@ -159,7 +159,8 @@ class EditorVideo extends React.Component {
                      placeholder="支持mp4、m3u8等直链"
                      onChange={e => this.handleChange('content', e.target.value)}/>
               : <div>
-                <div id="uploader"><span>上传</span><input type="file" ref='uploader' accept="video/*" onChange={this.onUpload.bind(this)}/></div>
+                <div id="uploader"><span>上传</span><input type="file" ref='uploader' accept="video/*"
+                                                         onChange={this.onUpload.bind(this)}/></div>
                 <div style={{height: '55px'}}></div>
               </div>
             } </li>
