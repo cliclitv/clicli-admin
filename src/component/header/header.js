@@ -48,10 +48,10 @@ class Header extends React.Component {
             <li>管理
               <ul>
                 <Link to='/posts/wait'>
-                  <li>审核番剧</li>
+                  <li>审核稿件</li>
                 </Link>
                 <Link to='/posts/public'>
-                  <li>管理番剧</li>
+                  <li>管理稿件</li>
                 </Link>
                 <Link to='/users/user'>
                   <li>管理用户</li>

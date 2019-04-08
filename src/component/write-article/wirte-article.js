@@ -34,7 +34,7 @@ class WriteArticle extends React.Component {
   componentDidMount() {
     this.loadArticle()
     this.loadVideo()
-    this.props.location.pathname === '/write-article' ? this.setState({text: '添加'}) : this.setState({text: '修改'})
+    this.props.location.pathname === '/write-article' ? this.setState({text: '添加'}) : this.setState({text: '更新'})
   }
 
   handleChange(key, val) {
@@ -126,35 +126,32 @@ class WriteArticle extends React.Component {
     return (
       <div>{this.state.msg ? <TopTip text={this.state.msg} bg={this.state.bg}/> : null}
         <div className="write-article">
-          <h1>{this.state.text}番剧</h1>
+          <h1>{this.state.text}稿件</h1>
           <input type="text" placeholder="请输入标题"
                  value={this.state.title}
                  onChange={e => this.handleChange('title', e.target.value)}/>
           <Markdown handleMde={content => this.changeMde(content)}
                     value={this.state.content} defaultValue={this.state.defaultValue}/>
-          <span><select onChange={e => this.handleChange('sort', e.target.value)}
-                        value={this.state.sort}>
-          <option value="">分类</option>
+          <span>
+            <select onChange={e => this.handleChange('sort', e.target.value)}
+                    value={this.state.sort}>
+          <option value="">类型</option>
           <option value="xinfan">新番</option>
-          <option value="lianzai">连载</option>
-          <option value="lianzai">剧场版</option>
           <option value="wanjie">完结</option>
-          <option value="wenzhang">文章</option>
+          <option value="juchangban">剧场版</option>
+          <option value="yuanchuang">原创</option>
         </select></span>
           <span><select onChange={e => this.handleChange('type', e.target.value)}
                         value={this.state.type}>
           <option value="">选项</option>
           <option value="moren">默认</option>
           <option value="tuijian">推荐</option>
-          <option value="danmei">耽美</option>
-          <option value="shenshi">绅士</option>
         </select></span>
           <span><select onChange={e => this.handleChange('status', e.target.value)}
                         value={this.state.status}>
             <option value="">状态</option>
           <option value="wait">待审核</option>
-          <option value="draft">草稿</option>
-          <option value="ugc">原创</option>
+          <option value="under">已下架</option>
             {this.props.state.role === 'admin' || this.props.state.role === 'editor' ?
               <option value="public">发布</option> : null}
         </select></span>
@@ -176,7 +173,7 @@ class WriteArticle extends React.Component {
 
           </div>
           <div>
-            <button onClick={this.handleClick.bind(this)}>{this.state.text}番剧</button>
+            <button onClick={this.handleClick.bind(this)}>{this.state.text}稿件</button>
           </div>
         </div>
       </div>

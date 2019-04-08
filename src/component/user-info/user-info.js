@@ -47,9 +47,9 @@ class UserInfo extends React.Component {
         <div className="quick-start">
           快速开始：
           {this.props.state.role !== 'user' ? <span>
-            <Link to="/write-article">写文章</Link>
+            <Link to="/write-article">投稿</Link>
           </span> : null}
-          {this.props.state.role !== 'user' ? <span><Link to={router}>查看文章</Link></span> : null}
+          {this.props.state.role !== 'user' ? <span><Link to={router}>查看稿件</Link></span> : null}
           <span><Link to={info}>设置</Link></span>
         </div>
       </div>
