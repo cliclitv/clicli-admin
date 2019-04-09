@@ -11,7 +11,7 @@ import Loadable from 'react-loadable'
 import {Route, Switch} from 'react-router-dom'
 
 const ArticleList = Loadable({
-  loader: () => import('component/article-list/article-list'),
+  loader: () => import('component/post-list/post-list'),
   loading: Loading,
 })
 
@@ -67,7 +67,7 @@ class App extends React.Component {
               <Route path='/add-video/:pid' component={EditorVideo} key='add-video'/>
               <Route exact path='/editor-user/:user' component={EditorUser}/>
               <Route path='/article/:author' component={ArticleList} key='author'/>
-              <Route path='/posts/:type' component={ArticleList} key={location.pathname}/>
+              <Route path='/posts/:status' component={ArticleList} key={location.pathname}/>
               <Route path='/users/:role' component={UserList} key={location.pathname}/>
               <Route path='/pan/cookie' component={Cookie}/>
               <Route path='/pan/bit' component={PanBit} key={location.pathname}/>

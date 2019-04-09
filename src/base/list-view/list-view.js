@@ -3,7 +3,7 @@ import './listview.css'
 import {Link} from 'react-router-dom'
 import Confirm from '../confirm/confirm'
 import {withRouter} from 'react-router-dom'
-import {deleteArticle} from 'api/article'
+import {deleteArticle} from 'api/post'
 import {deleteCommentByPid} from "api/comment"
 import {deleteVideoByPid} from "api/video"
 
@@ -68,7 +68,7 @@ class ListView extends React.Component {
                 }}/><Link to={`/editor-article/` + item.id}><i className="icon-font icon-editor"/></Link></div>
               </li>
             )
-          }) : <h1>没有需要审核的文章</h1>}
+          }) : <h1>没有文章(′⌒`)</h1>}
         </ul>
       </div>
     )

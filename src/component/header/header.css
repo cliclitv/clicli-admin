@@ -1,55 +1,57 @@
 
 header {
-    background: #467B96;
-    padding: 10px;
-    width: 100%;
-    position: relative;
+  background: #467B96;
+  padding: 10px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 9;
 }
 
 header li {
-    display: inline-block;
-    color: #fff;
-    padding: 10px 30px;
-    cursor: pointer;
-    position: relative;
+  display: inline-block;
+  color: #fff;
+  padding: 10px 30px;
+  cursor: pointer;
+  position: relative;
 }
 
 header li:hover {
-    background: #204f69;
+  background: #204f69;
 }
 
 header li:hover ul {
-    display: block;
-    position: absolute;
-    top: 38px;
-    left: 0;
-    white-space: nowrap;
-    background: #204f69;
-    padding: 10px 0 15px 0;
+  display: block;
+  position: absolute;
+  top: 38px;
+  left: 0;
+  white-space: nowrap;
+  background: #204f69;
+  padding: 10px 0 15px 0;
 }
 
 header li:hover ul li {
-    display: block;
-    font-size: 13px;
+  display: block;
+  font-size: 13px;
 }
 
 header li:hover ul li:hover {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 header li ul {
-    display: none;
+  display: none;
 }
 
 header .logout {
-    background: #608ea8;
-    float: right;
-    border-right: 1px solid #467B96;
+  background: #608ea8;
+  float: right;
+  border-right: 1px solid #467B96;
 }
 
 header .logout:hover {
-    background: #608ea8;
-    font-weight: bold;
+  background: #608ea8;
+  font-weight: bold;
 }
 
 

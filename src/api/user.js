@@ -6,7 +6,7 @@ const request = axios.create({
 
 // 用户登录
 export function login(user) {
-  return axios.post('/api/login', {
+  return axios.post('/user/login', {
     name: user.name,
     pwd: user.pwd
   })
@@ -15,7 +15,7 @@ export function login(user) {
 
 // 用户注册
 export function register(user) {
-  return request.post('/register', {
+  return request.post('/user/register', {
     name: user.name,
     pwd: user.pwd,
     qq: user.qq,

@@ -1,5 +1,5 @@
 import React from 'react'
-import {writeArticle, getOneArticle, update} from 'api/article'
+import {add, getPost, update} from 'api/post'
 import {getVideos} from "api/video"
 import {adminAuth} from "hoc/auth/auth"
 import {getStorage} from "common/js/localstorage"
@@ -15,7 +15,6 @@ class WriteArticle extends React.Component {
   constructor(props) {
 
     super(props)
-
     this.state = {
       title: '',
       content: '',
@@ -26,7 +25,8 @@ class WriteArticle extends React.Component {
       uid: getStorage('user-info').id,
       text: '撰写',
       bg: '',
-      type: '',
+      tag: '',
+      time: '',
       videos: []
     }
   }
@@ -51,14 +51,16 @@ class WriteArticle extends React.Component {
 
   loadArticle() {
     if (this.state.id) {
-      getOneArticle(this.state.id).then((res) => {
+      getPost(this.state.id).then((res) => {
+        const {title, content, sort, tag, status, time} = res.data.result
         this.setState({
-          title: res.data.result.title,
-          content: res.data.result.content,
-          sort: res.data.result.sort,
-          type: res.data.result.type,
-          status: res.data.result.status,
-          defaultValue: res.data.result.content
+          title,
+          content,
+          sort,
+          tag,
+          status,
+          time,
+          defaultValue: content
         })
       })
     }
@@ -75,7 +77,7 @@ class WriteArticle extends React.Component {
   }
 
   handleClick() {
-    if (!this.state.title || !this.state.content || !this.state.status || !this.state.sort || !this.state.type) {
+    if (!this.state.title || !this.state.content || !this.state.status || !this.state.sort || !this.state.tag) {
       this.setState({
         msg: '都要填写都要填(〃＞皿＜)！',
         bg: '#ef736e'
@@ -93,7 +95,7 @@ class WriteArticle extends React.Component {
         if (res.data.code === 201) {
           this.setState({
             msg: '更新成功啦！',
-            text: '修改',
+            text: '更新',
             bg: '#b4d896'
           })
         }
@@ -105,7 +107,7 @@ class WriteArticle extends React.Component {
         }, 5000)
       })
     } else {
-      writeArticle(this.state).then((res) => {
+      add(this.state).then((res) => {
         if (res.data.code === 201) {
           this.setState({
             msg: '添加成功啦',
@@ -122,14 +124,27 @@ class WriteArticle extends React.Component {
     }
   }
 
+  selectTag(item) {
+    if (this.state.tag.indexOf(item) > -1) {
+      this.setState({
+        tag: this.state.tag.replace(` ${item}`, '')
+      })
+    } else {
+      this.setState({
+        tag: this.state.tag + ' ' + item
+      })
+    }
+  }
+
   render() {
+    const tags = ['推荐', '转载', '乙女', '后宫', '热血', '神魔', '日常', '古风', '恋爱', 'r15', '泡面番', '治愈', '鬼畜', 'AMV/MAD', '音乐·PV', '游戏·GMV', 'VOCALOID', '其它']
     return (
       <div>{this.state.msg ? <TopTip text={this.state.msg} bg={this.state.bg}/> : null}
         <div className="write-article">
           <h1>{this.state.text}稿件</h1>
-          <input type="text" placeholder="请输入标题"
-                 value={this.state.title}
-                 onChange={e => this.handleChange('title', e.target.value)}/>
+          <li><input type="text" placeholder="请输入标题"
+                     value={this.state.title}
+                     onChange={e => this.handleChange('title', e.target.value)}/></li>
           <Markdown handleMde={content => this.changeMde(content)}
                     value={this.state.content} defaultValue={this.state.defaultValue}/>
           <span>
@@ -141,12 +156,6 @@ class WriteArticle extends React.Component {
           <option value="juchangban">剧场版</option>
           <option value="yuanchuang">原创</option>
         </select></span>
-          <span><select onChange={e => this.handleChange('type', e.target.value)}
-                        value={this.state.type}>
-          <option value="">选项</option>
-          <option value="moren">默认</option>
-          <option value="tuijian">推荐</option>
-        </select></span>
           <span><select onChange={e => this.handleChange('status', e.target.value)}
                         value={this.state.status}>
             <option value="">状态</option>
@@ -155,6 +164,14 @@ class WriteArticle extends React.Component {
             {this.props.state.role === 'admin' || this.props.state.role === 'editor' ?
               <option value="public">发布</option> : null}
         </select></span>
+          <span>{this.props.location.pathname === '/write-article' ? null : <input type="text" value={this.state.time}
+                                                                                   onChange={e => this.handleChange('time', e.target.value)}/>}</span>
+          <div className="tags">
+            <ul>
+              {tags.map((item, index) => <li onClick={() => this.selectTag(item)} key={index}
+                                             className={this.state.tag.includes(item) ? 'active' : ''}>{item}</li>)}
+            </ul>
+          </div>
           <div className="video-list">
             {this.state.videos ? this.state.videos.map(item => {
               return (

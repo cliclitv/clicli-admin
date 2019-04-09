@@ -75,11 +75,9 @@ module.exports = {
     historyApiFallback: true,
     hot: true,
     proxy: {
-      '/api/login': {
-        target: 'http://api.chinko.cc/'
-      },
-      '/hcy/list': {
-        target: 'http://www.clicli.us/'
+      '/api/*': {
+        pathRewrite: {'^/api': ''},
+        target: 'http://localhost:4000'
       }
     }
   }

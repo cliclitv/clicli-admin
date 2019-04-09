@@ -10,11 +10,6 @@ export function getBitList(fid) {
 
 }
 
-export function getKandianList() {
-  return axios.get('/kandian/list')
-
-}
-
 export function getHcyList(fid) {
   return axios.get('/hcy/list', {
     params: {
