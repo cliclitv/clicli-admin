@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const request = axios.create({
-  baseURL: 'https://api.clicli.top/'
+  baseURL: '/api'
 })
 
 // 用户登录
@@ -81,7 +81,6 @@ export function replaceCookie(data) {
   return request.post('/cookie/replace', {
     uid: parseInt(data.uid),
     hcy: data.hcy,
-    kandian: data.kandian,
     bit: data.bit
   })
 

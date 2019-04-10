@@ -16,7 +16,7 @@ export function adminAuth(Component) {
     }
 
     componentDidMount() {
-      axios.get('/auth').then(res => {
+      axios.get('/api/auth').then(res => {
         if (res.data.code === 401) {
           this.props.history.push('/login')
         } else {

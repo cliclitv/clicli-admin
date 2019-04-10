@@ -13,7 +13,6 @@ class Cookie extends React.Component {
     this.state = {
       uid: getStorage('user-info').id,
       hcy: '',
-      kandian: '',
       bit: '',
       msg:''
     }
