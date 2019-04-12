@@ -150,15 +150,13 @@ class WriteArticle extends React.Component {
           <span>
             <select onChange={e => this.handleChange('sort', e.target.value)}
                     value={this.state.sort}>
-          <option value="">类型</option>
-          <option value="xinfan">新番</option>
-          <option value="wanjie">完结</option>
-          <option value="juchangban">剧场版</option>
-          <option value="yuanchuang">原创</option>
+          <option value="原创">原创</option>
+          <option value="新番">新番</option>
+          <option value="完结">完结</option>
+          <option value="剧场版">剧场版</option>
         </select></span>
           <span><select onChange={e => this.handleChange('status', e.target.value)}
                         value={this.state.status}>
-            <option value="">状态</option>
           <option value="wait">待审核</option>
           <option value="under">已下架</option>
             {this.props.state.role === 'admin' || this.props.state.role === 'editor' ?
