@@ -1,10 +1,10 @@
 import React from 'react'
 
-import {Link,withRouter} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
 import {HOME_LINK} from "common/js/util"
 import {adminAuth} from "hoc/auth/auth"
 import {map} from "smox"
-import Cookies from 'js-cookie'
+import {logout} from "api/user"
 import {removeStorage} from "common/js/localstorage"
 
 import './header.css'
@@ -16,22 +16,15 @@ import './header.css'
 @withRouter
 @adminAuth
 class Header extends React.Component {
-  onLogout(){
+  onLogout() {
     this.props.logout()
-    Cookies.remove('uname',{
-      path:'/',
-      domain:'clicli.top'
+    logout().then(res => {
+      if (res.data.code === 201) {
+        removeStorage('user-info')
+        this.props.history.push('/login')
+      }
     })
-    Cookies.remove('uqq',{
-      path:'/',
-      domain:'clicli.top'
-    })
-    Cookies.remove('uid',{
-      path:'/',
-      domain:'clicli.top'
-    })
-    removeStorage('user-info')
-    this.props.history.push('/login')
+
   }
 
   render() {

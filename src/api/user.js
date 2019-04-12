@@ -50,7 +50,7 @@ export function userList(role) {
 
 // 用户退出
 export function logout() {
-  return request.post('/user/logout')
+  return axios.post('/user/logout')
 }
 
 // 获取用户cookie
