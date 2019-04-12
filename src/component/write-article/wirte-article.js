@@ -137,7 +137,7 @@ class WriteArticle extends React.Component {
   }
 
   render() {
-    const tags = ['推荐', '转载', '耽美', '乙女', '后宫', '热血', '神魔', '日常', '古风', '恋爱', 'r15', '泡面番', '治愈', '鬼畜', 'AMV/MAD', '音乐·PV', '游戏·GMV', 'VOCALOID', '其它']
+    const tags = ['推荐', '转载', '耽美', '乙女', '百合', '后宫', '热血', '奇幻', '神魔', '搞笑', '冒险', '日常', '古风', '恋爱', 'r15', '泡面番', '治愈', '鬼畜', 'AMV/MAD', '音乐·PV', '游戏·GMV', 'VOCALOID', '其它']
     return (
       <div>{this.state.msg ? <TopTip text={this.state.msg} bg={this.state.bg}/> : null}
         <div className="write-article">
