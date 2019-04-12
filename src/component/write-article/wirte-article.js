@@ -25,7 +25,7 @@ class WriteArticle extends React.Component {
       uid: getStorage('user-info').id,
       text: '撰写',
       bg: '',
-      tag: '推荐',
+      tag: '',
       time: '',
       videos: []
     }

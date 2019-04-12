@@ -58,11 +58,11 @@ export function getCookie(uid) {
   return axios.get(`/cookie/${uid}`)
 }
 
-export function getUser(uname, id) {
+export function getUser(uname, uid) {
   return request.get('/user', {
     params: {
       uname,
-      id
+      uid
     }
   })
 }
