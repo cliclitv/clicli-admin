@@ -1,9 +1,9 @@
 import axios from 'axios'
+import {isDev, API_LINK} from 'common/js/util'
 
 const request = axios.create({
-  baseURL: 'https://api.clicli.top'
+  baseURL: API_LINK
 })
-
 // 根据pid查找评论
 export function getCommentByPid(pid, page, pageSize) {
   return request.get('/comments', {

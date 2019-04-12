@@ -2,7 +2,7 @@ import React from 'react'
 
 import TopTip from 'base/top-tip/top-tip'
 
-import {getUserByName, update} from 'api/user'
+import {getUser, update} from 'api/user'
 import {adminAuth} from "hoc/auth/auth"
 
 import './editor-user.css'
@@ -27,7 +27,7 @@ class EditorUser extends React.Component {
   }
 
   loadUser() {
-    getUserByName(this.state.uname).then(res => {
+    getUser(this.state.uname).then(res => {
       if (res.data.code === 201) {
         this.setState(res.data.user)
       }

@@ -1,7 +1,8 @@
 import axios from 'axios'
+import {isDev, API_LINK} from 'common/js/util'
 
 const request = axios.create({
-  baseURL: '/api'
+  baseURL: API_LINK
 })
 
 // 用户登录
@@ -15,7 +16,7 @@ export function login(user) {
 
 // 用户注册
 export function register(user) {
-  return request.post('/user/register', {
+  return axios.post('/user/register', {
     name: user.name,
     pwd: user.pwd,
     qq: user.qq,
@@ -46,25 +47,6 @@ export function userList(role) {
   })
 }
 
-// 根据ID查找用户信息
-
-export function getUserById(id) {
-  return request.get('/user', {
-    params: {
-      uid: id
-    }
-  })
-}
-
-// 根据用户名查找用户信息
-
-export function getUserByName(name) {
-  return request.get('/user', {
-    params: {
-      uname: name
-    }
-  })
-}
 
 // 用户退出
 export function logout() {
@@ -73,15 +55,28 @@ export function logout() {
 
 // 获取用户cookie
 export function getCookie(uid) {
-  return request.get(`/cookie/${uid}`)
+  return axios.get(`/cookie/${uid}`)
+}
+
+export function getUser(uname, id) {
+  return request.get('/user', {
+    params: {
+      uname,
+      id
+    }
+  })
 }
 
 // 替换用户cookie
 export function replaceCookie(data) {
-  return request.post('/cookie/replace', {
+  return axios.post('/cookie/replace', {
     uid: parseInt(data.uid),
     hcy: data.hcy,
     bit: data.bit
   })
 
+}
+
+export function auth() {
+  return request.get('/auth')
 }

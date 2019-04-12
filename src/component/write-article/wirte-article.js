@@ -25,7 +25,7 @@ class WriteArticle extends React.Component {
       uid: getStorage('user-info').id,
       text: '撰写',
       bg: '',
-      tag: '',
+      tag: '推荐',
       time: '',
       videos: []
     }
@@ -45,7 +45,7 @@ class WriteArticle extends React.Component {
 
   changeMde(content) {
     this.setState({
-      content: content
+      content
     })
   }
 
@@ -137,7 +137,7 @@ class WriteArticle extends React.Component {
   }
 
   render() {
-    const tags = ['推荐', '转载', '乙女', '后宫', '热血', '神魔', '日常', '古风', '恋爱', 'r15', '泡面番', '治愈', '鬼畜', 'AMV/MAD', '音乐·PV', '游戏·GMV', 'VOCALOID', '其它']
+    const tags = ['推荐', '转载', '耽美', '乙女', '后宫', '热血', '神魔', '日常', '古风', '恋爱', 'r15', '泡面番', '治愈', '鬼畜', 'AMV/MAD', '音乐·PV', '游戏·GMV', 'VOCALOID', '其它']
     return (
       <div>{this.state.msg ? <TopTip text={this.state.msg} bg={this.state.bg}/> : null}
         <div className="write-article">
@@ -169,7 +169,7 @@ class WriteArticle extends React.Component {
           <div className="tags">
             <ul>
               {tags.map((item, index) => <li onClick={() => this.selectTag(item)} key={index}
-                                             className={this.state.tag.includes(item) ? 'active' : ''}>{item}</li>)}
+                                             className={this.state.tag.indexOf(item) > -1 ? 'active' : ''}>{item}</li>)}
             </ul>
           </div>
           <div className="video-list">

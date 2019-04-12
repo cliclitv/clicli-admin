@@ -1,8 +1,8 @@
 import axios from 'axios'
-import {replaceContent} from 'common/js/util'
+import {replaceContent, isDev, API_LINK} from 'common/js/util'
 
 const request = axios.create({
-  baseURL: 'https://api.clicli.top'
+  baseURL: API_LINK
 })
 
 // 根据pid查找视频
@@ -26,7 +26,7 @@ export function getVideo(vid) {
 // 添加视频
 export function addVideo({oid, title, content, pid, uid}) {
   content = replaceContent(content)
-  return request.post('/video/add', {
+  return axios.post('/video/add', {
     oid: parseInt(oid),
     title,
     content,
@@ -38,7 +38,7 @@ export function addVideo({oid, title, content, pid, uid}) {
 // 修改视频
 export function updateVideo({id, oid, title, content, pid, uid}) {
   content = replaceContent(content)
-  return request.post(`/video/update/${id}`, {
+  return axios.post(`/video/update/${id}`, {
     oid: parseInt(oid),
     title,
     content,
@@ -49,7 +49,7 @@ export function updateVideo({id, oid, title, content, pid, uid}) {
 
 // 根据id删除视频
 export function deleteVideoById(id) {
-  return request.delete('/delete/video', {
+  return axios.delete('/delete/video', {
     params: {
       id
     }
@@ -58,7 +58,7 @@ export function deleteVideoById(id) {
 
 // 根据pid删除视频
 export function deleteVideoByPid(pid) {
-  return request.delete('/delete/video', {
+  return axios.delete('/delete/video', {
     params: {
       pid
     }

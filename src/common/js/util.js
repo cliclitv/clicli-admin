@@ -16,3 +16,8 @@ export function replaceContent(content) {
   if (content.indexOf('san.php') > 1) content = content.replace('/static/danmu/san.php?http://193.112.131.234:8081/zzzfun/v360?v=', '') + '@s_360'
   return content
 }
+
+export let isDev = process.env.NODE_ENV === 'development'
+export const HOME_LINK = 'https://www.clicli.us'
+export const API_LINK = 'https://api.clicli.us'
+export const I_LINK = 'https://i.clicli.us'

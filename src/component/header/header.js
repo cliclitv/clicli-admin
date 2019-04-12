@@ -1,6 +1,7 @@
 import React from 'react'
 
 import {Link,withRouter} from 'react-router-dom'
+import {HOME_LINK} from "common/js/util"
 import {adminAuth} from "hoc/auth/auth"
 import {map} from "smox"
 import Cookies from 'js-cookie'
@@ -77,7 +78,7 @@ class Header extends React.Component {
           <li onClick={this.onLogout.bind(this)} className="logout">
             退出
           </li>
-          <a href="https://www.clicli.top" target="_blank">
+          <a href={HOME_LINK} target="_blank">
             <li className="logout">
               网站首页
             </li>

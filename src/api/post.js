@@ -1,11 +1,16 @@
 import axios from 'axios'
+import {isDev, API_LINK} from 'common/js/util'
 
 const request = axios.create({
-  baseURL: '/api'
+  baseURL: API_LINK
 })
 
 export function getPosts(status, sort, tag, uid, page, pageSize) {
-  return request.get(`/posts?status=${status}&sort=${sort}&uid=${uid}&tag=${tag}&page=${page}&pageSize=${pageSize}`)
+  return request.get(`/posts`, {
+    params: {
+      status, sort, tag, uid, page, pageSize
+    }
+  })
 }
 
 export function getPost(id) {
@@ -13,7 +18,7 @@ export function getPost(id) {
 }
 
 export function add({title, content, status, sort, tag, uid}) {
-  return request.post('/post/add', {
+  return axios.post('/post/add', {
     title,
     content,
     status,
@@ -25,7 +30,7 @@ export function add({title, content, status, sort, tag, uid}) {
 
 // 更新文章
 export function update({id, title, content, status, sort, tag, uid, time}) {
-  return request.post(`/post/update/${id}`, {
+  return axios.post(`/post/update/${id}`, {
     title,
     content,
     status,
@@ -38,6 +43,6 @@ export function update({id, title, content, status, sort, tag, uid, time}) {
 
 // 删除一篇文章
 export function deletePost(id) {
-  return request.post(`/post/delete/${id}`)
+  return axios.post(`/post/delete/${id}`)
 }
 

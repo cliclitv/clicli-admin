@@ -1,10 +1,7 @@
-// 鉴权公共方法
-import {getStorage} from "common/js/localstorage"
 import React from "react"
-import Cookies from "js-cookie"
-import {Base64} from 'js-base64'
-import {getUserByName} from 'api/user'
-import axios from "axios/index"
+import {getStorage} from "common/js/localstorage"
+import {API_LINK} from "common/js/util"
+import {auth} from 'api/user'
 
 export function adminAuth(Component) {
   return class WrapperComp extends React.Component {
@@ -15,17 +12,17 @@ export function adminAuth(Component) {
       }
     }
 
-    componentDidMount() {
-      axios.get('/api/auth').then(res => {
-        if (res.data.code === 401) {
-          this.props.history.push('/login')
-        } else {
-          this.setState({
-            role: res.data.user.role
-          })
-        }
-      })
-    }
+    // componentDidMount() {
+    //   auth().then(res => {
+    //     if (res.data.code === 401) {
+    //       this.props.history.push('/login')
+    //     } else {
+    //       this.setState({
+    //         role: res.data.user.role
+    //       })
+    //     }
+    //   })
+    // }
 
     render() {
       return <Component state={this.state} {...this.props}></Component>

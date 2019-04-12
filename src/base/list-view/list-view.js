@@ -3,7 +3,7 @@ import './listview.css'
 import {Link} from 'react-router-dom'
 import Confirm from '../confirm/confirm'
 import {withRouter} from 'react-router-dom'
-import {deleteArticle} from 'api/post'
+import {deletePost} from 'api/post'
 import {deleteCommentByPid} from "api/comment"
 import {deleteVideoByPid} from "api/video"
 
@@ -19,7 +19,7 @@ class ListView extends React.Component {
   }
 
   handleDelete(id) {
-    Promise.all([deleteArticle(id), deleteCommentByPid(id), deleteVideoByPid(id)]).then(() => {
+    Promise.all([deletePost(id), deleteCommentByPid(id), deleteVideoByPid(id)]).then(() => {
       this.props.refresh()
     })
 
