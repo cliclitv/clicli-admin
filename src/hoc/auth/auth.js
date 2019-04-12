@@ -12,17 +12,17 @@ export function adminAuth(Component) {
       }
     }
 
-    // componentDidMount() {
-    //   auth().then(res => {
-    //     if (res.data.code === 401) {
-    //       this.props.history.push('/login')
-    //     } else {
-    //       this.setState({
-    //         role: res.data.user.role
-    //       })
-    //     }
-    //   })
-    // }
+    componentDidMount() {
+      auth().then(res => {
+        if (res.data.code === 401) {
+          this.props.history.push('/login')
+        } else {
+          this.setState({
+            role: res.data.user.role
+          })
+        }
+      })
+    }
 
     render() {
       return <Component state={this.state} {...this.props}></Component>

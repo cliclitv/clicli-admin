@@ -8,7 +8,6 @@ import {getAvatar} from "common/js/util"
 
 import './user-info.css'
 import Cookies from "js-cookie"
-import {Base64} from 'js-base64'
 
 @adminAuth
 class UserInfo extends React.Component {

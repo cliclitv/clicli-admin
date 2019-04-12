@@ -78,5 +78,5 @@ export function replaceCookie(data) {
 }
 
 export function auth() {
-  return request.get('/auth')
+  return axios.get('/auth')
 }
