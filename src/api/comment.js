@@ -18,25 +18,8 @@ export function getCommentByUid(uid, page, pageSize) {
   })
 }
 
-// 添加评论
-export function addComment(comment) {
-  return request.post('/danmu/add', comment)
-}
-
-// 根据id删除评论
-export function deleteCommentById(id) {
-  return request.delete(`/delete/comment`,{
-    params:{
-      id
-    }
-  })
-}
 
 // 根据pid删除评论
 export function deleteCommentByPid(pid) {
-  return request.delete(`/delete/comment`,{
-    params:{
-      pid
-    }
-  })
+  return axios.post(`/comment/delete?pid=${pid}`)
 }
