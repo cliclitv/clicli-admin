@@ -164,7 +164,7 @@ class WriteArticle extends React.Component {
             {this.props.state.role === 'admin' || this.props.state.role === 'editor' ?
               <option value="public">发布</option> : null}
         </select></span>
-          <span>{this.props.location.pathname === '/write-article' ? null : <input type="text" value={this.state.time}
+          <span>{this.props.location.pathname === '/write-article' ? null : <input type="text" value={this.state.time.slice(0,-3)}
                                                                                    onChange={e => this.handleChange('time', e.target.value)}/>}</span>
           <div className="tags">
             <ul>
