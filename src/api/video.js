@@ -49,11 +49,7 @@ export function updateVideo({id, oid, title, content, pid, uid}) {
 
 // 根据id删除视频
 export function deleteVideoById(id) {
-  return axios.post('/video/delete', {
-    params: {
-      id
-    }
-  })
+  return axios.post(`/video/delete?id=${id}`)
 }
 
 // 根据pid删除视频
