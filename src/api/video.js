@@ -61,7 +61,7 @@ export function deleteVideoByPid(pid) {
 //上传
 
 export function getUploadToken(fname, rname) {
-  return axios.get('https://www.clicli.us/upload/auth', {
+  return axios.get('https://jx.clicli.us/upload/auth', {
     params: {
       fname,
       rname
