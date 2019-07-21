@@ -21,7 +21,7 @@ class WriteArticle extends React.Component {
       sort: '原创',
       status: '待审核',
       msg: '',
-      uid: Cookies.get('uid'),
+      uid: parseInt(Cookies.get('uid')),
       id: this.props.match.params.editor,
       text: '撰写',
       bg: '',

@@ -20,7 +20,7 @@ class EditorVideo extends React.Component {
       content: '',
       pid: this.props.match.params.pid,
       text: '修改',
-      uid: Cookies.get('uid'),
+      uid: parseInt(Cookies.get('uid')),
       zhilian: true,
       per: 0
     }

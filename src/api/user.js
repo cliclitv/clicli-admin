@@ -21,7 +21,7 @@ export function register(user) {
     name: user.name,
     pwd: user.pwd,
     qq: user.qq,
-    role: 'user',
+    level: 1,
     desc: '人懒，竟然没有签名~'
   })
 }
@@ -32,11 +32,11 @@ export function update(user) {
     name: user.name,
     pwd: user.pwd,
     qq: user.qq,
-    level: user.level,
+    level: parseInt(user.level),
     desc: user.desc
   }, {
     headers: {
-      'token': Cookies.get('cookie')
+      'token': Cookies.get('token')
     }
   })
 }

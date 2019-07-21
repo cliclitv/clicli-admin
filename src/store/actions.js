@@ -10,10 +10,9 @@ export default {
     }
     return login(user).then(res => {
       commit('errMsg', '')
-      if (res.data.code === 201) {
+      if (res.status === 200) {
         commit('login', res.data)
-      }
-      if (res.data.code !== 201) {
+      } else {
         commit('errMsg', res.data.msg)
         setTimeout(() => {
           commit('errMsg', '')

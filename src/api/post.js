@@ -28,7 +28,7 @@ export function add({title, content, status, sort, tag, uid}) {
     uid
   }, {
     headers: {
-      'token': Cookies.get('cookie')
+      'token': Cookies.get('token')
     }
   })
 }
@@ -45,7 +45,7 @@ export function update({id, title, content, status, sort, tag, uid, time}) {
     time
   }, {
     headers: {
-      'token': Cookies.get('cookie')
+      'token': Cookies.get('token')
     }
   })
 }
@@ -54,7 +54,7 @@ export function update({id, title, content, status, sort, tag, uid, time}) {
 export function deletePost(id) {
   return axios.post(`/post/delete/${id}`, {}, {
     headers: {
-      'token': Cookies.get('cookie')
+      'token': Cookies.get('token')
     }
   })
 }

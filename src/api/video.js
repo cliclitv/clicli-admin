@@ -35,7 +35,7 @@ export function addVideo({oid, title, content, pid, uid}) {
     uid
   }, {
     headers: {
-      'token': Cookies.get('cookie')
+      'token': Cookies.get('token')
     }
   })
 }
@@ -51,7 +51,7 @@ export function updateVideo({id, oid, title, content, pid, uid}) {
     uid
   }, {
     headers: {
-      'token': Cookies.get('cookie')
+      'token': Cookies.get('token')
     }
   })
 }
@@ -60,7 +60,7 @@ export function updateVideo({id, oid, title, content, pid, uid}) {
 export function deleteVideoById(id) {
   return axios.post(`/video/delete?id=${id}`, {}, {
     headers: {
-      'token': Cookies.get('cookie')
+      'token': Cookies.get('token')
     }
   })
 }
@@ -69,7 +69,7 @@ export function deleteVideoById(id) {
 export function deleteVideoByPid(pid) {
   return axios.post(`/video/delete?pid=${pid}`, {}, {
     headers: {
-      'token': Cookies.get('cookie')
+      'token': Cookies.get('token')
     }
   })
 }

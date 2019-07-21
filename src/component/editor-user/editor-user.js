@@ -40,6 +40,19 @@ class EditorUser extends React.Component {
     })
   }
 
+  handleClick() {
+    update(this.state).then(res => {
+      this.setState({
+        msg: res.data.msg
+      })
+      setTimeout(() => {
+        this.setState({
+          msg: ''
+        })
+      }, 5000)
+    })
+  }
+
   render() {
     return (
       <div>
@@ -56,7 +69,7 @@ class EditorUser extends React.Component {
             </li>
             {this.props.state.level > 3 ? (
               <li>权限：
-                <select value={this.state.level} onChange={e => this.handleChange('role', e.target.value)}>
+                <select value={this.state.level} onChange={e => this.handleChange('level', e.target.value)}>
                   <option value="1">用户</option>
                   <option value="2">作者</option>
                   <option value="3">审核</option>
