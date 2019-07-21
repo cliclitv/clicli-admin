@@ -1,7 +1,6 @@
 import React from 'react'
 
 import {Link} from 'react-router-dom'
-import {setStorage} from "common/js/localstorage"
 import {adminAuth} from "hoc/auth/auth"
 import {getUser} from 'api/user'
 import {getAvatar} from "common/js/util"
@@ -20,7 +19,6 @@ class UserInfo extends React.Component {
 
   componentDidMount() {
     Cookies.get('uid') ? getUser('', Cookies.get('uid')).then(res => {
-      setStorage('user-info', res.data.user)
       this.setState({
         user: res.data.user
       })

@@ -1,5 +1,6 @@
 import axios from 'axios'
 import {isDev, API_LINK} from 'common/js/util'
+import Cookies from "js-cookie"
 
 const request = axios.create({
   baseURL: API_LINK
@@ -31,8 +32,12 @@ export function update(user) {
     name: user.name,
     pwd: user.pwd,
     qq: user.qq,
-    role: user.role,
+    level: user.level,
     desc: user.desc
+  }, {
+    headers: {
+      'token': Cookies.get('cookie')
+    }
   })
 }
 
@@ -55,7 +60,7 @@ export function logout() {
 
 // 获取用户cookie
 export function getCookie(uid) {
-  return axios.get(`/cookie/${uid}`)
+  return request.get(`/cookie/${uid}`)
 }
 
 export function getUser(uname, uid) {

@@ -1,13 +1,11 @@
 import React from 'react'
-
 import TopTip from 'base/top-tip/top-tip'
-
 import {getVideo, updateVideo, deleteVideoById, addVideo, getUploadToken} from "api/video"
 import {adminAuth} from "hoc/auth/auth"
 import {withRouter} from 'react-router-dom'
-import {getStorage} from "common/js/localstorage"
 
 import '../editor-user/editor-user.css'
+import Cookies from "js-cookie"
 
 @adminAuth
 @withRouter
@@ -21,8 +19,8 @@ class EditorVideo extends React.Component {
       title: '',
       content: '',
       pid: this.props.match.params.pid,
-      uid: getStorage('user-info').id,
       text: '修改',
+      uid: Cookies.get('uid'),
       zhilian: true,
       per: 0
     }

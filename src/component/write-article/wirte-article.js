@@ -2,8 +2,8 @@ import React from 'react'
 import {add, getPost, update} from 'api/post'
 import {getVideos} from "api/video"
 import {adminAuth} from "hoc/auth/auth"
-import {getStorage} from "common/js/localstorage"
 import {Link} from 'react-router-dom'
+import Cookies from 'js-cookie'
 
 import Markdown from 'base/markdown/markdown'
 import TopTip from 'base/top-tip/top-tip'
@@ -21,8 +21,8 @@ class WriteArticle extends React.Component {
       sort: '原创',
       status: '待审核',
       msg: '',
+      uid: Cookies.get('uid'),
       id: this.props.match.params.editor,
-      uid: getStorage('user-info').id,
       text: '撰写',
       bg: '',
       tag: '',
@@ -161,7 +161,7 @@ class WriteArticle extends React.Component {
                         value={this.state.status}>
           <option value="wait">待审核</option>
           <option value="under">已下架</option>
-            {this.props.state.role === 'admin' || this.props.state.role === 'editor' ?
+            {this.props.state.level > 2 ?
               <option value="public">发布</option> : null}
         </select></span>
           <span>{this.props.location.pathname === '/write-article' ? null : <input type="text" value={this.state.time}

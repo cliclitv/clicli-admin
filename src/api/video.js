@@ -1,5 +1,6 @@
 import axios from 'axios'
 import {replaceContent, isDev, API_LINK} from 'common/js/util'
+import Cookies from "js-cookie"
 
 const request = axios.create({
   baseURL: API_LINK
@@ -32,6 +33,10 @@ export function addVideo({oid, title, content, pid, uid}) {
     content,
     pid: parseInt(pid),
     uid
+  }, {
+    headers: {
+      'token': Cookies.get('cookie')
+    }
   })
 }
 
@@ -44,17 +49,29 @@ export function updateVideo({id, oid, title, content, pid, uid}) {
     content,
     pid: parseInt(pid),
     uid
+  }, {
+    headers: {
+      'token': Cookies.get('cookie')
+    }
   })
 }
 
 // 根据id删除视频
 export function deleteVideoById(id) {
-  return axios.post(`/video/delete?id=${id}`)
+  return axios.post(`/video/delete?id=${id}`, {}, {
+    headers: {
+      'token': Cookies.get('cookie')
+    }
+  })
 }
 
 // 根据pid删除视频
 export function deleteVideoByPid(pid) {
-  return axios.post(`/video/delete?pid=${pid}`)
+  return axios.post(`/video/delete?pid=${pid}`, {}, {
+    headers: {
+      'token': Cookies.get('cookie')
+    }
+  })
 }
 
 

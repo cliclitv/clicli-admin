@@ -1,7 +1,6 @@
 import React from 'react'
 
 import TopTip from 'base/top-tip/top-tip'
-import {getStorage} from "common/js/localstorage"
 import {getCookie, replaceCookie} from 'api/user'
 
 import './cookie.css'
@@ -11,9 +10,7 @@ class Cookie extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      uid: getStorage('user-info').id,
       hcy: '',
-      bit: '',
       msg:''
     }
   }
@@ -60,8 +57,6 @@ class Cookie extends React.Component {
         <div className="editor-user">
           <h1>设置Cookie</h1>
           <ul>
-            <li>比特球：<input type="text" value={this.state.bit} onChange={e => this.handleChange('bit', e.target.value)}/>
-            </li>
             <li>和彩云：<input type="text" value={this.state.hcy} onChange={e => this.handleChange('hcy', e.target.value)}/>
             </li>
             <li className="center">

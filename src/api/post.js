@@ -1,5 +1,6 @@
 import axios from 'axios'
 import {isDev, API_LINK} from 'common/js/util'
+import Cookies from 'js-cookie'
 
 const request = axios.create({
   baseURL: API_LINK
@@ -25,6 +26,10 @@ export function add({title, content, status, sort, tag, uid}) {
     sort,
     tag,
     uid
+  }, {
+    headers: {
+      'token': Cookies.get('cookie')
+    }
   })
 }
 
@@ -38,11 +43,19 @@ export function update({id, title, content, status, sort, tag, uid, time}) {
     tag,
     uid,
     time
+  }, {
+    headers: {
+      'token': Cookies.get('cookie')
+    }
   })
 }
 
 // 删除一篇文章
 export function deletePost(id) {
-  return axios.post(`/post/delete/${id}`)
+  return axios.post(`/post/delete/${id}`, {}, {
+    headers: {
+      'token': Cookies.get('cookie')
+    }
+  })
 }
 

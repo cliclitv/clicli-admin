@@ -18,7 +18,7 @@ class EditorUser extends React.Component {
       name: '',
       qq: '',
       desc: '',
-      role: ''
+      level: ''
     }
   }
 
@@ -40,19 +40,6 @@ class EditorUser extends React.Component {
     })
   }
 
-  handleClick() {
-    update(this.state).then(res => {
-      this.setState({
-        msg: res.data.msg
-      })
-      setTimeout(() => {
-        this.setState({
-          msg: ''
-        })
-      }, 5000)
-    })
-  }
-
   render() {
     return (
       <div>
@@ -67,13 +54,13 @@ class EditorUser extends React.Component {
             </li>
             <li>QQ：<input type="text" value={this.state.qq} onChange={e => this.handleChange('qq', e.target.value)}/>
             </li>
-            {this.props.state.role === 'admin' ? (
+            {this.props.state.level > 3 ? (
               <li>权限：
-                <select value={this.state.role} onChange={e => this.handleChange('role', e.target.value)}>
-                  <option value="user">用户</option>
-                  <option value="author">作者</option>
-                  <option value="editor">审核</option>
-                  <option value="admin">管理</option>
+                <select value={this.state.level} onChange={e => this.handleChange('role', e.target.value)}>
+                  <option value="1">用户</option>
+                  <option value="2">作者</option>
+                  <option value="3">审核</option>
+                  <option value="4">管理</option>
                 </select></li>
             ) : null}
 

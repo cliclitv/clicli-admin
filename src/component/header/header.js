@@ -5,7 +5,6 @@ import {HOME_LINK} from "common/js/util"
 import {adminAuth} from "hoc/auth/auth"
 import {map} from "smox"
 import {logout} from "api/user"
-import {removeStorage} from "common/js/localstorage"
 
 import './header.css'
 
@@ -20,7 +19,6 @@ class Header extends React.Component {
     this.props.logout()
     logout().then(res => {
       if (res.data.code === 201) {
-        removeStorage('user-info')
         this.props.history.push('/login')
       }
     })
@@ -34,11 +32,11 @@ class Header extends React.Component {
           <Link to='/'>
             <li>控制台</li>
           </Link>
-          {this.props.state.role !== 'user' ?
+          {this.props.state.level > 1 ?
             <Link to='/write-article'>
               <li>撰写</li>
             </Link> : null}
-          {this.props.state.role === 'admin' || this.props.state.role === 'editor' ?
+          {this.props.state.level > 2 ?
             <li>管理
               <ul>
                 <Link to='/posts/wait'>
@@ -53,10 +51,10 @@ class Header extends React.Component {
               </ul>
             </li>
             : null}
-          {this.props.state.role === 'admin' || this.props.state.role === 'editor' ?
-            <li>网盘
-              <ul>
-                <Link to='/pan/cookie'>
+          {this.props.state.level > 2 ?
+            < li> 网盘
+              < ul>
+                < Link to='/pan/cookie'>
                   <li>设置Cookie</li>
                 </Link>
                 <Link to='/pan/bit'>

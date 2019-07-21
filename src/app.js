@@ -20,11 +20,6 @@ const Cookie = Loadable({
   loading: Loading,
 })
 
-const PanBit = Loadable({
-  loader: () => import('component/pan-bit/pan-bit'),
-  loading: Loading,
-})
-
 const PanHcy = Loadable({
   loader: () => import('component/pan-hcy/pan-hcy'),
   loading: Loading,
@@ -70,8 +65,6 @@ class App extends React.Component {
               <Route path='/posts/:status' component={ArticleList} key={location.pathname}/>
               <Route path='/users/:role' component={UserList} key={location.pathname}/>
               <Route path='/pan/cookie' component={Cookie}/>
-              <Route path='/pan/bit' component={PanBit} key={location.pathname}/>
-              <Route path='/pan/bit-list/:fid' component={PanBit} key={location.pathname}/>
               <Route path='/pan/hcy' component={PanHcy} key={location.pathname}/>
               <Route path='/pan/hcy-list/:fid' component={PanHcy} key={location.pathname}/>
               <Route path='/' component={UserInfo}/>
