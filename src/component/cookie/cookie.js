@@ -21,7 +21,7 @@ class Cookie extends React.Component {
 
   getCookie() {
     getCookie(this.state.uid).then(res => {
-      if (res.data.code === 201) {
+      if (res.data.code === 200) {
         this.setState(res.data.result)
       }
     })
@@ -36,7 +36,7 @@ class Cookie extends React.Component {
   handleClick() {
 
     replaceCookie(this.state).then(res => {
-      if (res.data.code === 201) {
+      if (res.data.code === 200) {
         this.setState({
           msg: '更新成功啦！'
         })

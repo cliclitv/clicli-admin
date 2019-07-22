@@ -42,10 +42,10 @@ export function update(user) {
 }
 
 // 获取用户列表
-export function userList(role) {
+export function userList(level) {
   return request.get('/users', {
     params: {
-      role,
+      level,
       page: 1,
       pageSize: 100
     }

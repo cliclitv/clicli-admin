@@ -18,7 +18,7 @@ class Header extends React.Component {
   onLogout() {
     this.props.logout()
     logout().then(res => {
-      if (res.data.code === 201) {
+      if (res.data.code === 200) {
         this.props.history.push('/login')
       }
     })
@@ -52,9 +52,9 @@ class Header extends React.Component {
             </li>
             : null}
           {this.props.state.level > 2 ?
-            < li> 网盘
-              < ul>
-                < Link to='/pan/cookie'>
+            <li> 网盘
+              <ul>
+                <Link to='/pan/cookie'>
                   <li>设置Cookie</li>
                 </Link>
                 <Link to='/pan/bit'>

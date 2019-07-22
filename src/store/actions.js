@@ -22,7 +22,7 @@ export default {
   },
   onLogout({commit}) {
     return logout().then(res => {
-      if (res.data.code === 201) {
+      if (res.data.code === 200) {
         commit('logout', res.data)
         setTimeout(() => {
           commit('errMsg', '')

@@ -37,7 +37,7 @@ class EditorVideo extends React.Component {
 
   loadVideo() {
     getVideo(this.state.id).then(res => {
-      if (res.data.code === 201) {
+      if (res.data.code === 200) {
         this.setState(res.data.result)
       }
     })
@@ -51,7 +51,7 @@ class EditorVideo extends React.Component {
 
   deleteVideo() {
     deleteVideoById(this.state.id).then(res => {
-      if (res.data.code === 201) {
+      if (res.data.code === 200) {
         this.setState({
           msg: '删除成功啦'
         })
@@ -68,7 +68,7 @@ class EditorVideo extends React.Component {
   handleClick() {
     if (this.props.location.pathname.indexOf('editor-video') > -1) {
       updateVideo(this.state).then(res => {
-        if (res.data.code === 201) {
+        if (res.data.code === 200) {
           this.setState({
             msg: '更新成功啦'
           })
@@ -87,7 +87,7 @@ class EditorVideo extends React.Component {
 
   addVideos() {
     addVideo(this.state).then(res => {
-      if (res.data.code === 201) {
+      if (res.data.code === 200) {
         this.setState({
           msg: '添加成功啦'
         })

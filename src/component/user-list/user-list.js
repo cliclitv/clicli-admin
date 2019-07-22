@@ -18,7 +18,7 @@ class UserList extends React.Component {
 
   componentDidMount() {
     userList(this.props.match.params.role).then((res) => {
-      if (res.data.code === 201) {
+      if (res.data.code === 200) {
         this.setState({users: res.data.users})
       }
     })
@@ -48,9 +48,7 @@ class UserList extends React.Component {
                   </Link>
                 </li>
               )
-            })
-          }
-
+            })}
         </ul>
       </div>
 

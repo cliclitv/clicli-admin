@@ -92,7 +92,7 @@ class WriteArticle extends React.Component {
 
     if (this.props.location.pathname !== '/write-article') {
       update(this.state).then((res) => {
-        if (res.data.code === 201) {
+        if (res.data.code === 200) {
           this.setState({
             msg: '更新成功啦！',
             text: '更新',
@@ -108,7 +108,7 @@ class WriteArticle extends React.Component {
       })
     } else {
       add(this.state).then((res) => {
-        if (res.data.code === 201) {
+        if (res.data.code === 200) {
           this.setState({
             msg: '添加成功啦',
             bg: '#b4d896'
