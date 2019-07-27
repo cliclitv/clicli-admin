@@ -32,11 +32,11 @@ class Header extends React.Component {
           <Link to='/'>
             <li>控制台</li>
           </Link>
-          {this.props.state.level > 1 ?
+          {this.props.state.level >= 2 ?
             <Link to='/write-article'>
               <li>撰写</li>
             </Link> : null}
-          {this.props.state.level > 2 ?
+          {this.props.state.level >= 3 ?
             <li>管理
               <ul>
                 <Link to='/posts/wait'>
@@ -51,7 +51,7 @@ class Header extends React.Component {
               </ul>
             </li>
             : null}
-          {this.props.state.level > 2 ?
+          {this.props.state.level >= 2 ?
             <li> 网盘
               <ul>
                 <Link to='/pan/cookie'>

@@ -18,7 +18,7 @@ class PostList extends React.Component {
   loadArticles() {
     let status = this.props.match.params.status
     getPosts(status, '', '', '', 1, 100).then((res) => {
-      if (res.data.code === 201) {
+      if (res.data.code === 200) {
         this.setState({
           posts: res.data.posts
         })
@@ -28,7 +28,7 @@ class PostList extends React.Component {
 
   loadAuthorArticle() {
     getPosts('', '', '', this.props.match.params.author, 1, 100).then(res => {
-      if (res.data.code === 201) {
+      if (res.data.code === 200) {
         this.setState({
           posts: res.data.posts
         })

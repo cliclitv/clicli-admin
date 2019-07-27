@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 import {withRouter} from 'react-router-dom'
 import {getHcyList} from 'api/jx'
 import {Base64} from 'js-base64'
+import Cookies from 'js-cookie'
 
 @withRouter
 
@@ -27,7 +28,7 @@ class PanHcy extends React.Component {
   }
 
   copy(id, name) {
-    // let uid = getStorage('user-info').id
+    let uid = Cookies.get('uid')
     let url = Base64.encode(uid + ',' + id + ',' + name) + '@hcy'
     let input = document.createElement('input')
     input.value = url
