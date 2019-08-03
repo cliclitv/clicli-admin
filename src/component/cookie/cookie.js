@@ -2,6 +2,7 @@ import React from 'react'
 
 import TopTip from 'base/top-tip/top-tip'
 import {getCookie, replaceCookie} from 'api/user'
+import Cookies from 'js-cookie'
 
 import './cookie.css'
 
@@ -11,7 +12,8 @@ class Cookie extends React.Component {
     super(props)
     this.state = {
       hcy: '',
-      msg:''
+      msg: '',
+      uid: Cookies.get('uid')
     }
   }
 
