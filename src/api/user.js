@@ -78,7 +78,7 @@ export function replaceCookie(data) {
   return axios.post('/cookie/replace', {
     uid: parseInt(data.uid),
     hcy: data.hcy,
-    bit: data.bit
+    quqi: data.quqi
   })
 
 }
