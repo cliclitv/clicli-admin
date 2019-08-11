@@ -12,6 +12,7 @@ class Cookie extends React.Component {
     super(props)
     this.state = {
       hcy: '',
+      quqi:'',
       msg: '',
       uid: Cookies.get('uid')
     }
@@ -36,7 +37,6 @@ class Cookie extends React.Component {
   }
 
   handleClick() {
-
     replaceCookie(this.state).then(res => {
       if (res.data.code === 200) {
         this.setState({
@@ -60,6 +60,8 @@ class Cookie extends React.Component {
           <h1>设置Cookie</h1>
           <ul>
             <li>和彩云：<input type="text" value={this.state.hcy} onChange={e => this.handleChange('hcy', e.target.value)}/>
+            </li>
+            <li>曲奇：<input type="text" value={this.state.quqi} onChange={e => this.handleChange('quqi', e.target.value)}/>
             </li>
             <li className="center">
               <button onClick={this.handleClick.bind(this)}>保存</button>

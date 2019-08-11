@@ -17,7 +17,7 @@ class UserList extends React.Component {
   }
 
   componentDidMount() {
-    userList(this.props.match.params.role).then((res) => {
+    userList(this.props.match.params.level).then((res) => {
       if (res.data.code === 200) {
         this.setState({users: res.data.users})
       }
@@ -36,7 +36,7 @@ class UserList extends React.Component {
 
         <ul>
           {this.props.location.pathname === '/users/user' ?
-            <ReachBox text='请输入用户名' prefix='/editor-user/'/>
+            <ReachBox text='请输入qq' prefix='/editor-user/'/>
               :
             this.state.users.map((item) => {
               const qq = `http://q2.qlogo.cn/headimg_dl?dst_uin=` + item.qq + `&spec=100`

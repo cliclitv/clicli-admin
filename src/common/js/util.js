@@ -1,4 +1,5 @@
 import md5 from 'blueimp-md5'
+import Cookies from 'js-cookie'
 
 export function getAvatar(avatar) {
   if (/^[0-9]+$/.test(avatar)) {
@@ -10,15 +11,10 @@ export function getAvatar(avatar) {
 }
 
 export function replaceContent(content) {
-  if (content.indexOf('ftn.qq.com') > -1) content = content.replace('ftn_handler/', 'rkey=')
   if (content.indexOf('ksyun.php') > -1) content = content.replace('/static/danmu/ksyun.php?', '') + '@ksyun'
   if (content.indexOf('zhilian2.php') > -1) content = content.replace('http://119.23.209.33/static/danmu/zhilian2.php?http://47.94.243.190:8081/play/', '') + '@c_360'
   if (content.indexOf('san.php') > -1) content = content.replace('http://www.zzzfun.com/static/danmu/san.php?v360?v=', '') + '@s_360'
-  if (content.indexOf('sharepoint') > -1) {
-    content = decodeURIComponent(content)
-    content = content.replace(/personal([\s\S]+?)id=\//g, '').replace(/&parent(\S*)/g, '')
-    console.log(content)
-  }
+  if (content.indexOf('quqi.com') > -1) content = content + '/' + Cookies.get('uid')
   return content
 }
 

@@ -60,7 +60,7 @@ class App extends React.Component {
               <Route path='/write-article' component={WriteArticle} key='write'/>
               <Route path='/editor-video/:id' component={EditorVideo} key='editor-video'/>
               <Route path='/add-video/:pid' component={EditorVideo} key='add-video'/>
-              <Route exact path='/editor-user/:user' component={EditorUser}/>
+              <Route exact path='/editor-user/:qq' component={EditorUser}/>
               <Route path='/article/:author' component={ArticleList} key='author'/>
               <Route path='/posts/:status' component={ArticleList} key={location.pathname}/>
               <Route path='/users/:role' component={UserList} key={location.pathname}/>

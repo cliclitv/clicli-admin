@@ -8,7 +8,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'js/[name].js',
-    publicPath: process.env.NODE_ENV === 'development' ? '/' : 'https://cdn.jsdelivr.net/gh/cliclitv/clicli-admin@master/dist/'
+    publicPath: process.env.NODE_ENV === 'development' ? '/' : 'https://cdn.jsdelivr.net/gh/cliclitv/clicli-admin@latest/dist/'
   },
   resolve: {
     alias: {

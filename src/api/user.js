@@ -63,11 +63,12 @@ export function getCookie(uid) {
   return request.get(`/cookie/${uid}`)
 }
 
-export function getUser(uname, uid) {
+export function getUser(uname, uid, uqq) {
   return request.get('/user', {
     params: {
       uname,
-      uid
+      uid,
+      uqq
     }
   })
 }

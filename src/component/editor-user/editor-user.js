@@ -13,10 +13,9 @@ class EditorUser extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      uname: this.props.match.params.user,
+      qq: this.props.match.params.qq,
       msg: '',
       name: '',
-      qq: '',
       desc: '',
       level: ''
     }
@@ -27,7 +26,7 @@ class EditorUser extends React.Component {
   }
 
   loadUser() {
-    getUser(this.state.uname).then(res => {
+    getUser('', 0, this.state.qq).then(res => {
       if (res.data.code === 200) {
         this.setState(res.data.user)
       }
