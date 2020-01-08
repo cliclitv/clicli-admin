@@ -1111,18 +1111,23 @@ a{
     text-decoration: none;
 }
 body {
-    font: 14px 微软雅黑;
-    color: #444;
-    background: #F6F6F3;
+  font: 14px 微软雅黑;
+  color: #444;
+  background: #f6f6f3;
 }
 
 a {
-    color: #467B96;
+  color: #467b96;
 }
 
 .center {
-    text-align: center;
+  text-align: center;
 }
+
+li {
+  list-style: none;
+}
+
 
 @font-face {font-family: "icon-font";
   src: url('//at.alicdn.com/t/font_474499_sbdek9r9luucjtt9.eot?t=1519207777376'); /* IE9*/
