@@ -29,7 +29,7 @@ class PanHcy extends React.Component {
 
   copy(id, name) {
     let uid = Cookies.get('uid')
-    let url = Base64.encode(uid + ',' + id + ',' + name) + '@hcy'
+    let url = Base64.encode(uid + ',' + id) + '@hcy'
     let input = document.createElement('input')
     input.value = url
     document.body.appendChild(input)
