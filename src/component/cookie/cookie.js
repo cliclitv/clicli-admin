@@ -61,7 +61,7 @@ class Cookie extends React.Component {
           <ul>
             <li>和彩云：<input type="text" value={this.state.hcy} onChange={e => this.handleChange('hcy', e.target.value)}/>
             </li>
-            <li>曲奇：<input type="text" value={this.state.quqi} onChange={e => this.handleChange('quqi', e.target.value)}/>
+            <li>360云盘：<input type="text" value={this.state.quqi} onChange={e => this.handleChange('quqi', e.target.value)}/>
             </li>
             <li className="center">
               <button onClick={this.handleClick.bind(this)}>保存</button>
