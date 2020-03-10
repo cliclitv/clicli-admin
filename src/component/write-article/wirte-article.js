@@ -18,8 +18,8 @@ class WriteArticle extends React.Component {
     this.state = {
       title: '',
       content: '',
-      sort: '原创',
-      status: '待审核',
+      sort: '完结',
+      status: 'wait',
       msg: '',
       uid: parseInt(Cookies.get('uid')),
       id: this.props.match.params.editor,
@@ -138,8 +138,9 @@ class WriteArticle extends React.Component {
 
   render() {
     const tags = ['推荐', '转载', '漫画改', '小说改', '耽美', '乙女', '百合', '后宫', '热血', '战斗', '运动', '奇幻', '神魔',
-      '搞笑', '冒险', '日常', '古风', '恋爱', 'r15', '泡面番', '治愈',
-      '鬼畜', 'AMV/MAD', '音乐·PV', '游戏·GMV', 'VOCALOID', '影视', '其它']
+      '搞笑', '冒险','校园', '恐怖' ,'穿越' ,'推理' ,'科幻',  '日常', '古风', '恋爱', 'r15', '泡面番', '治愈',
+      '鬼畜', 'AMV/MAD', '音乐·PV', '游戏·GMV', 'VOCALOID', '影视',
+      '特摄', '真人剧', '其它']
     return (
       <div>{this.state.msg ? <TopTip text={this.state.msg} bg={this.state.bg}/> : null}
         <div className="write-article">
