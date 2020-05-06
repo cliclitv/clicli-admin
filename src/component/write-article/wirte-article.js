@@ -157,10 +157,12 @@ class WriteArticle extends React.Component {
           <option value="新番">新番</option>
           <option value="完结">完结</option>
           <option value="剧场版">剧场版</option>
+          <option value="影视">影视</option>
         </select></span>
           <span><select onChange={e => this.handleChange('status', e.target.value)}
                         value={this.state.status}>
           <option value="wait">待审核</option>
+          <option value="remove">待删除</option>
           <option value="under">已下架</option>
             {this.props.state.level > 2 ?
               <option value="public">发布</option> : null}
