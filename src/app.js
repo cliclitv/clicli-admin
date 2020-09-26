@@ -1,7 +1,6 @@
 import React from 'react'
 
 import Header from 'component/header/header'
-import Footer from 'component/footer/footer'
 import Loading from 'base/loading/loading'
 import EditorUser from 'component/editor-user/editor-user'
 import WriteArticle from 'component/write-article/wirte-article'
@@ -15,15 +14,6 @@ const ArticleList = Loadable({
   loading: Loading,
 })
 
-const Cookie = Loadable({
-  loader: () => import('component/cookie/cookie'),
-  loading: Loading,
-})
-
-const PanHcy = Loadable({
-  loader: () => import('component/pan-hcy/pan-hcy'),
-  loading: Loading,
-})
 
 const UserList = Loadable({
   loader: () => import('component/user-list/user-list'),
@@ -64,12 +54,8 @@ class App extends React.Component {
               <Route path='/article/:author' component={ArticleList} key='author'/>
               <Route path='/posts/:status' component={ArticleList} key={location.pathname}/>
               <Route path='/users/:role' component={UserList} key={location.pathname}/>
-              <Route path='/pan/cookie' component={Cookie}/>
-              <Route path='/pan/hcy' component={PanHcy} key={location.pathname}/>
-              <Route path='/pan/hcy-list/:fid' component={PanHcy} key={location.pathname}/>
               <Route path='/' component={UserInfo}/>
             </Switch>
-            <Footer/>
           </div>
         )}/>
       </Switch>

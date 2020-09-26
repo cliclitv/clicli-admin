@@ -1,6 +1,6 @@
 
 header {
-  background: #467B96;
+  background: #7e5fd9;
   padding: 10px;
   width: 100%;
   position: fixed;
@@ -17,7 +17,7 @@ header li {
 }
 
 header li:hover {
-  background: #204f69;
+  background: #6c43b6;
 }
 
 header li:hover ul {
@@ -26,7 +26,7 @@ header li:hover ul {
   top: 38px;
   left: 0;
   white-space: nowrap;
-  background: #204f69;
+  background: #6c43b6;
   padding: 10px 0 15px 0;
 }
 
@@ -44,13 +44,13 @@ header li ul {
 }
 
 header .logout {
-  background: #608ea8;
+  background: #9579e8;
   float: right;
-  border-right: 1px solid #467B96;
+  border-right: 1px solid #7e5fd9;
 }
 
 header .logout:hover {
-  background: #608ea8;
+  background: #9579e8;
   font-weight: bold;
 }
 

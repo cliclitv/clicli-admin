@@ -20,7 +20,7 @@
 }
 
 .login li button{
-    background: #467B96;
+    background: #7e5fd9;
     width: 100%;
     border: 0px;
     box-shadow: 1px 1px 1px rgba(32, 79, 105, 0.6);
@@ -33,7 +33,7 @@
 }
 
 .login h1{
-    color: #467B96;
+    color: #7e5fd9;
     font-size: 40px;
     padding: 10px;
 }

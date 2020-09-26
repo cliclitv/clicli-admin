@@ -4,7 +4,7 @@
 }
 
 .editor-user h1 {
-  color: #467B96;
+  color: #7e5fd9;
   font-size: 24px;
   margin: 20px 0;
 }
@@ -37,7 +37,7 @@
 }
 
 .editor-user button {
-  background: #467B96;
+  background: #7e5fd9;
   padding: 8px 30px;
   color: #fff;
   margin: 20px;
@@ -88,7 +88,7 @@
   position: absolute;
   top: 15px;
   left: 0;
-  background: #204f69;
+  background: #6c43b6;
   color: #fff;
   width: 100px;
   text-align: center;

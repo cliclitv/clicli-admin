@@ -4,7 +4,7 @@
 }
 
 .article-list h1 {
-    color: #467B96;
+    color: #7e5fd9;
     font-size: 24px;
     padding: 10px;
 }
@@ -25,7 +25,7 @@
 
 .listview li .title {
     flex: 3;
-    color: #467B96;
+    color: #7e5fd9;
 }
 
 .listview li .sort, .listview li .status, .listview li .action {
@@ -33,7 +33,7 @@
 }
 
 .listview li .action i {
-    color: #467B96;
+    color: #7e5fd9;
     cursor: pointer;
     padding-right: 10px;
 }

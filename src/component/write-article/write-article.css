@@ -4,7 +4,7 @@
 }
 
 .write-article h1 {
-  color: #467B96;
+  color: #7e5fd9;
   font-size: 24px;
   margin: 20px 0;
 }
@@ -26,7 +26,7 @@
   outline: none;
 }
 .write-article button {
-  background: #467B96;
+  background: #7e5fd9;
   padding: 8px 30px;
   color: #fff;
   margin: 20px 0;
@@ -62,12 +62,12 @@
   padding: 10px;
   box-sizing: border-box;
   border-radius: 50%;
-  border: 1px solid #467B96;
+  border: 1px solid #7e5fd9;
 }
 
 .write-article .video-list .add {
   font-weight: bold;
-  background: #467B96;
+  background: #7e5fd9;
   color: #fff;
 }
 
@@ -84,14 +84,14 @@
   display: inline-block;
   padding: 2px 10px;
   background: #b6cedc;
-  color: #204f69;
+  color: #6c43b6;
   border-radius: 4px;
   margin: 10px 10px 0 0;
   cursor: pointer;
 }
 
 .write-article .tags .active {
-  background: #204f69;
+  background: #6c43b6;
   color: #fff;
 }
 

@@ -51,21 +51,6 @@ class Header extends React.Component {
               </ul>
             </li>
             : null}
-          {this.props.state.level >= 2 ?
-            <li> 网盘
-              <ul>
-                <Link to='/pan/cookie'>
-                  <li>设置Cookie</li>
-                </Link>
-                <Link to='/pan/bit'>
-                  <li>比特球</li>
-                </Link>
-                <Link to='/pan/hcy'>
-                  <li>和彩云</li>
-                </Link>
-              </ul>
-            </li>
-            : null}
           <li onClick={this.onLogout.bind(this)} className="logout">
             退出
           </li>
