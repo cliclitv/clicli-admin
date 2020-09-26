@@ -1,42 +1,18 @@
 import React from 'react'
 
 import Header from 'component/header/header'
-import Loading from 'base/loading/loading'
 import EditorUser from 'component/editor-user/editor-user'
 import WriteArticle from 'component/write-article/wirte-article'
 import EditorVideo from 'component/editor-video/editor-video'
-import Loadable from 'react-loadable'
+import Login from 'component/login/login'
+import UserList from 'component/user-list/user-list'
+import ArticleList from 'component/post-list/post-list'
+import Register from 'component/register/register'
+import UserInfo from 'component/user-info/user-info'
 
 import {Route, Switch} from 'react-router-dom'
 
-const ArticleList = Loadable({
-  loader: () => import('component/post-list/post-list'),
-  loading: Loading,
-})
-
-
-const UserList = Loadable({
-  loader: () => import('component/user-list/user-list'),
-  loading: Loading,
-})
-
-const Login = Loadable({
-  loader: () => import('component/login/login'),
-  loading: Loading,
-})
-
-const Register = Loadable({
-  loader: () => import('component/register/register'),
-  loading: Loading,
-})
-
-const UserInfo = Loadable({
-  loader: () => import('component/user-info/user-info'),
-  loading: Loading,
-})
-
 class App extends React.Component {
-
   render() {
     return (
       <Switch>

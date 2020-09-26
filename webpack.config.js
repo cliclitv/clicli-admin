@@ -7,7 +7,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'js/[name].js',
+    filename: '[name].js',
     publicPath: process.env.NODE_ENV === 'development' ? '/' : 'https://s-sh-16-clicli.oss.dogecdn.com/admin/'
   },
   resolve: {
@@ -63,8 +63,7 @@ module.exports = {
       template: './src/index.html'
     }),
     new MiniCssExtractPlugin({
-      filename: "../css/[name].css",
-      chunkFilename: "css/[id].css"
+      filename: "../[name].css"
     }),
   ],
   devServer: {
