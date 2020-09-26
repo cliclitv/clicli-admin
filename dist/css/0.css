@@ -1,6 +1,6 @@
 
 header {
-  background: #467B96;
+  background: #7e5fd9;
   padding: 10px;
   width: 100%;
   position: fixed;
@@ -17,7 +17,7 @@ header li {
 }
 
 header li:hover {
-  background: #204f69;
+  background: #6c43b6;
 }
 
 header li:hover ul {
@@ -26,7 +26,7 @@ header li:hover ul {
   top: 38px;
   left: 0;
   white-space: nowrap;
-  background: #204f69;
+  background: #6c43b6;
   padding: 10px 0 15px 0;
 }
 
@@ -44,28 +44,18 @@ header li ul {
 }
 
 header .logout {
-  background: #608ea8;
+  background: #9579e8;
   float: right;
-  border-right: 1px solid #467B96;
+  border-right: 1px solid #7e5fd9;
 }
 
 header .logout:hover {
-  background: #608ea8;
+  background: #9579e8;
   font-weight: bold;
 }
 
 
 
-footer {
-    font-size: 12px;
-    width: 100%;
-    color: #999;
-}
-
-footer p {
-    padding: 30px;
-    text-align: center;
-}
 .loading{
     position: absolute;
     width: 100px;
@@ -86,7 +76,7 @@ footer p {
 .loading .text{
     text-align: center;
     font-size: 12px;
-    color: #467B96;
+    color: #7e5fd9;
 }
 .toptip {
     position: fixed;
@@ -122,7 +112,7 @@ footer p {
 }
 
 .editor-user h1 {
-  color: #467B96;
+  color: #7e5fd9;
   font-size: 24px;
   margin: 20px 0;
 }
@@ -155,7 +145,7 @@ footer p {
 }
 
 .editor-user button {
-  background: #467B96;
+  background: #7e5fd9;
   padding: 8px 30px;
   color: #fff;
   margin: 20px;
@@ -206,7 +196,7 @@ footer p {
   position: absolute;
   top: 15px;
   left: 0;
-  background: #204f69;
+  background: #6c43b6;
   color: #fff;
   width: 100px;
   text-align: center;
@@ -960,7 +950,7 @@ span.CodeMirror-selectedtext {
 }
 
 .write-article h1 {
-  color: #467B96;
+  color: #7e5fd9;
   font-size: 24px;
   margin: 20px 0;
 }
@@ -982,7 +972,7 @@ span.CodeMirror-selectedtext {
   outline: none;
 }
 .write-article button {
-  background: #467B96;
+  background: #7e5fd9;
   padding: 8px 30px;
   color: #fff;
   margin: 20px 0;
@@ -1018,12 +1008,12 @@ span.CodeMirror-selectedtext {
   padding: 10px;
   box-sizing: border-box;
   border-radius: 50%;
-  border: 1px solid #467B96;
+  border: 1px solid #7e5fd9;
 }
 
 .write-article .video-list .add {
   font-weight: bold;
-  background: #467B96;
+  background: #7e5fd9;
   color: #fff;
 }
 
@@ -1040,14 +1030,14 @@ span.CodeMirror-selectedtext {
   display: inline-block;
   padding: 2px 10px;
   background: #b6cedc;
-  color: #204f69;
+  color: #6c43b6;
   border-radius: 4px;
   margin: 10px 10px 0 0;
   cursor: pointer;
 }
 
 .write-article .tags .active {
-  background: #204f69;
+  background: #6c43b6;
   color: #fff;
 }
 
@@ -1113,11 +1103,11 @@ a{
 body {
   font: 14px 微软雅黑;
   color: #444;
-  background: #f6f6f3;
+  background: #f4f6fa;
 }
 
 a {
-  color: #467b96;
+  color: #7e5fd9;
 }
 
 .center {

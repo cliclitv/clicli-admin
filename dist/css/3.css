@@ -1,53 +1,39 @@
-.pan-list {
-  width: 900px;
-  margin: 50px auto;
+.login {
+    width: 280px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.pan-list h1 {
-  color: #467B96;
-  font-size: 24px;
-  padding: 10px;
+.login li {
+    padding: 8px 0;
+    text-align: center;
 }
 
-.pan-list {
-  box-shadow: 0px 1px 0px rgba(70, 123, 150, 0.2)
+.login li input {
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 1px rgba(70, 123, 150, 0.2);
+    border: 0px;
 }
 
-.pan-list li {
-  display: flex;
-  padding: 10px;
-  border-bottom: 1px #ddd dashed;
-  align-items: center;
+.login li button{
+    background: #7e5fd9;
+    width: 100%;
+    border: 0px;
+    box-shadow: 1px 1px 1px rgba(32, 79, 105, 0.6);
+    padding: 10px;
+    color: #fff;
+    cursor: pointer;
+}
+.login li a{
+    text-align: center;
 }
 
-.pan-list li:hover {
-  background: #ebf4f9;
-}
-
-.pan-list ul li:last-child {
-  border: 0
-}
-
-.pan-list li .title {
-  flex: 3;
-  color: #467B96;
-}
-
-.pan-list li .sort, .pan-list li .status, .pan-list li .action {
-  flex: 1;
-}
-
-.pan-list li .action i {
-  color: #467B96;
-  cursor: pointer;
-  padding-right: 10px;
-}
-
-.pan-list button {
-  background: #608ea8;
-  padding: 3px 20px;
-  border: 0;
-  color: #fff;
-  border-radius: 4px;
-  cursor: pointer;
+.login h1{
+    color: #7e5fd9;
+    font-size: 40px;
+    padding: 10px;
 }
