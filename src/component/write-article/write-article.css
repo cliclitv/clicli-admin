@@ -12,7 +12,7 @@
 .write-article li input {
   padding: 10px;
   width: 100%;
-  box-shadow: 1px 1px 1px rgba(70, 123, 150, 0.2);
+  box-shadow: 1px 1px 1px rgba(70, 75, 150, 0.2);
   border: 0;
   margin: 10px 0;
   box-sizing: border-box;
@@ -31,14 +31,14 @@
   color: #fff;
   margin: 20px 0;
   border: 0;
-  box-shadow: 1px 1px 1px rgba(32, 79, 105, 0.6);
+  box-shadow: 1px 1px 1px rgba(70, 75, 150, 0.6);
   cursor: pointer;
   float: right;
 }
 
 .write-article select {
   padding: 5px 17px;
-  box-shadow: 1px 1px 1px rgba(70, 123, 150, 0.2);
+  box-shadow: 1px 1px 1px rgba(70, 75, 150, 0.2);
   border: 0;
   color: #666;
   margin: 20px 20px 20px 0;

@@ -15,7 +15,7 @@
     padding: 10px;
     width: 100%;
     box-sizing: border-box;
-    box-shadow: 1px 1px 1px rgba(70, 123, 150, 0.2);
+    box-shadow: 1px 1px 1px rgba(70, 75, 150, 0.2);
     border: 0px;
 }
 
@@ -23,7 +23,7 @@
     background: #7e5fd9;
     width: 100%;
     border: 0px;
-    box-shadow: 1px 1px 1px rgba(32, 79, 105, 0.6);
+    box-shadow: 1px 1px 1px rgba(60, 32, 105, 0.6);
     padding: 10px;
     color: #fff;
     cursor: pointer;
