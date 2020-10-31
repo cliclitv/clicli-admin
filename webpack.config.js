@@ -1,83 +1,43 @@
 const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
-const webpack = require('webpack')
+const { VueLoaderPlugin } = require('vue-loader')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-module.exports = {
-  entry: './src/index.js',
+module.exports = (env = {}) => ({
+  mode: env.prod ? 'production' : 'development',
+  entry: path.resolve(__dirname, './src/main.js'),
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js',
-    publicPath: process.env.NODE_ENV === 'development' ? '/' : 'https://s-sh-16-clicli.oss.dogecdn.com/admin/'
-  },
-  resolve: {
-    alias: {
-      component: path.resolve(__dirname, 'src/component'),
-      common: path.resolve(__dirname, 'src/common'),
-      api: path.resolve(__dirname, 'src/api'),
-      base: path.resolve(__dirname, 'src/base'),
-      store: path.resolve(__dirname, 'src/store'),
-      hoc: path.resolve(__dirname, 'src/hoc')
-    }
+    path: path.resolve(__dirname, './dist'),
+    publicPath: '/dist/'
   },
   module: {
     rules: [
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
+        test: /\.vue$/,
+        use: 'vue-loader'
+      },
+      {
+        test: /\.png$/,
         use: {
-          loader: 'babel-loader'
+          loader: 'url-loader',
+          options: { limit: 8192 }
         }
       },
       {
         test: /\.css$/,
         use: [
-          MiniCssExtractPlugin.loader,
-          "css-loader"
-        ]
-
-      },
-      {
-        test: /\.(png|jpg|gif)$/,
-        use: [
           {
-            loader: 'url-loader',
-            options: {
-              limit: 8192,
-              name: 'static/img/[name].[ext]'
-            }
-          }
+            loader: MiniCssExtractPlugin.loader,
+            options: { hmr: !env.prod }
+          },
+          'css-loader'
         ]
       }
     ]
   },
-  optimization: {
-    splitChunks: {
-      chunks: 'all'
-    },
-    runtimeChunk: true
-  },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new HtmlWebpackPlugin({
-      template: './src/index.html'
-    }),
+    new VueLoaderPlugin(),
     new MiniCssExtractPlugin({
-      filename: "[name].css"
-    }),
-  ],
-  devServer: {
-    headers: {'Access-Control-Allow-Origin': '*'},
-    contentBase: path.join(__dirname, "dist"),
-    compress: true,
-    port: 1122,
-    historyApiFallback: true,
-    hot: true,
-    proxy: {
-      '/api/*': {
-        pathRewrite: {'^/api': ''},
-        target: 'http://localhost:4000'
-      }
-    }
-  }
-}
+      filename: '[name].css'
+    })
+  ]
+})
